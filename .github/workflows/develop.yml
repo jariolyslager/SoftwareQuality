@@ -26,46 +26,9 @@ jobs:
                 gradle-version: '8.5'
           - name: Build with Gradle 8.5
             run: gradle build
-            
-          - name: Run Gradle tests
-            run: ./gradlew test
-       
     
-    analyze:
-    # Analyze vulnerabilities with CodeQL
-        name: Analyze
-        runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
-        timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
-        permissions:
-          security-events: write
-
-          actions: read
-          contents: read
-
-        strategy:
-          fail-fast: false
-          matrix:
-            language: [ 'java-kotlin' ]
-
-        steps:
-        - name: Checkout repository
-          uses: actions/checkout@v4
-
-        - name: Initialize CodeQL
-          uses: github/codeql-action/init@v3
-          with:
-            languages: ${{ matrix.language }}
-
-        - name: Autobuild
-          uses: github/codeql-action/autobuild@v3
-
-        - name: Perform CodeQL Analysis
-          uses: github/codeql-action/analyze@v3
-          with:
-            category: "/language:${{matrix.language}}"
-    
-    run-lint:
     # Check code style with super-linter
+    run-lint:
         runs-on: ubuntu-latest
         steps:
           - name: Checkout code
@@ -79,3 +42,8 @@ jobs:
               VALIDATE_ALL_CODEBASE: false
               DEFAULT_BRANCH: "main"
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              
+    # Run unit tests
+    run-unit-tests:
+        - name: Run Gradle tests
+            run: ./gradlew test

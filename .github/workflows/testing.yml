@@ -7,6 +7,7 @@ on:
         branches: [ "testing" ]
     
 jobs:
+    # Build app with gradle
     build:
         name: Build and Run Tests
         runs-on: ubuntu-latest
@@ -26,6 +27,36 @@ jobs:
           - name: Build with Gradle 8.5
             run: gradle build
             
-          - name: Run Gradle tests
-            run: ./gradlew test
+    # Analyze vulnerabilities with CodeQL
+    analyze:
+        name: Analyze
+        runs-on: ${{ (matrix.language == 'swift' && 'macos-latest') || 'ubuntu-latest' }}
+        timeout-minutes: ${{ (matrix.language == 'swift' && 120) || 360 }}
+        permissions:
+          security-events: write
+
+          actions: read
+          contents: read
+
+        strategy:
+          fail-fast: false
+          matrix:
+            language: [ 'java-kotlin' ]
+
+        steps:
+        - name: Checkout repository
+          uses: actions/checkout@v4
+
+        - name: Initialize CodeQL
+          uses: github/codeql-action/init@v3
+          with:
+            languages: ${{ matrix.language }}
+
+        - name: Autobuild
+          uses: github/codeql-action/autobuild@v3
+
+        - name: Perform CodeQL Analysis
+          uses: github/codeql-action/analyze@v3
+          with:
+            category: "/language:${{matrix.language}}"
         
