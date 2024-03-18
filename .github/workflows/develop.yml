@@ -7,7 +7,7 @@ on:
         branches: [ "develop" ]
     
 jobs:
-    # Build app with gradle and run unit tests
+    # Build app with gradle
     build:
         name: Build and Run Tests
         runs-on: ubuntu-latest
