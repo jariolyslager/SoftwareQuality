@@ -29,6 +29,7 @@ jobs:
     
     # Create a new release
     release:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Publish package
