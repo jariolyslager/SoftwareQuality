@@ -30,8 +30,8 @@ jobs:
     # Create a new release
     release:
         - name: Publish package
-            run: ./gradlew publish
-            env:
+          run: ./gradlew publish
+          env:
               MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
               MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
         
