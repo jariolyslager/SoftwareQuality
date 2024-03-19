@@ -9,7 +9,7 @@ on:
 jobs:
     # Build app with gradle
     build:
-        name: Build and Run Tests
+        name: Build app and setup gradle
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Code
