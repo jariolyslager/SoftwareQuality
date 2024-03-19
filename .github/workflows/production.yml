@@ -9,7 +9,7 @@ on:
 jobs:
     # Build app with gradle
     build:
-        name: Build app
+        name: Build app and setup gradle
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Code
@@ -29,10 +29,13 @@ jobs:
     
     # Create a new release
     release:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Publish package
-              run: ./gradlew publish
+              run: |
+                cd ${{ github.workspace }}
+                gradlew test
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
                   MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}

@@ -9,7 +9,7 @@ on:
 jobs:
     # Build app with gradle
     build:
-        name: Build and Run Tests
+        name: Build app and setup gradle
         runs-on: ubuntu-latest
         steps:
           - name: Checkout Code
@@ -62,8 +62,11 @@ jobs:
             
     # Run tests
     run-tests:
+        needs: build
         runs-on: ubuntu-latest
         steps:
             - name: Testing
-              run: ./gradlew test
+              run: |
+                cd ${{ github.workspace }}
+                gradlew test
         
