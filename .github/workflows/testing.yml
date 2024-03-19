@@ -66,5 +66,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Testing
-              run: gradle test
+              run: |
+                cd SoftwareQuality  # Change directory to the root directory of your project
+                ./gradlew test
         

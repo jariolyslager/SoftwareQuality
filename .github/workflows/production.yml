@@ -33,7 +33,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Publish package
-              run: gradle publish
+              run: |
+                cd SoftwareQuality  # Change directory to the root directory of your project
+                ./gradlew test
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
                   MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
