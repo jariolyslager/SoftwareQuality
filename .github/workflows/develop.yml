@@ -51,4 +51,5 @@ jobs:
             - name: Testing
               run: |
                 cd ${{ github.workspace }}
+                cd ..
                 gradle test
