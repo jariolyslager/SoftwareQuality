@@ -48,4 +48,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Testing
-              run: gradlew test
+              run: .\\gradlew test
