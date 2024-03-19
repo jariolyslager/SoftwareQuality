@@ -30,15 +30,15 @@ jobs:
     # Approve commit manually
     manual-approval:
         - name: Manual Workflow Approval
-          steps:
-              - uses: trstringer/manual-approval@v1
-                with:
-                  secret: ${{ github.TOKEN }}
-                  approvers: jariolyslager,kay-westerhof
-                  minimum-approvals: 1
-                  issue-title: "Deploying to prod from staging"
-                  issue-body: "Please approve or deny the deployment"
-                  exclude-workflow-initiator-as-approver: false
-                  additional-approved-words: ''
-                  additional-denied-words: ''
+        steps:
+            - uses: trstringer/manual-approval@v1
+              with:
+                secret: ${{ github.TOKEN }}
+                approvers: jariolyslager,kay-westerhof
+                minimum-approvals: 1
+                issue-title: "Deploying to prod from staging"
+                issue-body: "Please approve or deny the deployment"
+                exclude-workflow-initiator-as-approver: false
+                additional-approved-words: ''
+                additional-denied-words: ''
         
