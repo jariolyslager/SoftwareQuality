@@ -35,7 +35,7 @@ jobs:
             - name: Publish package
               run: |
                 cd ${{ github.workspace }}
-                ./gradlew test
+                gradlew test
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
                   MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
