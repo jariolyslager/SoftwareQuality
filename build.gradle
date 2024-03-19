@@ -2,16 +2,16 @@ plugins {
     id 'application'
 }
 
-group = 'org.example'
+group = 'com.nhlstenden'
 version = '1.0-SNAPSHOT'
 
 application {
-    mainClass = 'org.example.JabberPoint'
+    mainClass = 'com.nhlstenden.JabberPoint.JabberPoint'
 }
 
 jar {
     manifest {
-        attributes 'Main-Class': 'org.example.JabberPoint'
+        attributes 'Main-Class': 'com.nhlstenden.JabberPoint.JabberPoint'
     }
 }
 

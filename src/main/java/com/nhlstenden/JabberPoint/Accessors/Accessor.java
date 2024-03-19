@@ -1,4 +1,6 @@
-package org.example;
+package com.nhlstenden.JabberPoint.Accessors;
+
+import com.nhlstenden.JabberPoint.PresentationControls.Presentation;
 
 import java.io.IOException;
 

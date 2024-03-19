@@ -1,4 +1,10 @@
-package org.example;
+package com.nhlstenden.JabberPoint;
+
+import com.nhlstenden.JabberPoint.Accessors.Accessor;
+import com.nhlstenden.JabberPoint.Accessors.XMLAccessor;
+import com.nhlstenden.JabberPoint.PresentationControls.Presentation;
+import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerFrame;
+import com.nhlstenden.JabberPoint.Styles.Style;
 
 import javax.swing.JOptionPane;
 

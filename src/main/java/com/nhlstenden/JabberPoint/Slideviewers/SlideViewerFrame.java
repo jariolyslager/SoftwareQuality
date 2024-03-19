@@ -1,4 +1,8 @@
-package org.example;
+package com.nhlstenden.JabberPoint.Slideviewers;
+
+import com.nhlstenden.JabberPoint.PresentationControls.KeyController;
+import com.nhlstenden.JabberPoint.PresentationControls.MenuController;
+import com.nhlstenden.JabberPoint.PresentationControls.Presentation;
 
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;

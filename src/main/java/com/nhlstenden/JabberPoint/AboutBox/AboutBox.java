@@ -1,4 +1,4 @@
-package org.example;
+package com.nhlstenden.JabberPoint.AboutBox;
 
 import java.awt.Frame;
 import javax.swing.JOptionPane;

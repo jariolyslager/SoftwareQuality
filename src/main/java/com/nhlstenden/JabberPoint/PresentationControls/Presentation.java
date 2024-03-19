@@ -1,4 +1,7 @@
-package org.example;
+package com.nhlstenden.JabberPoint.PresentationControls;
+
+import com.nhlstenden.JabberPoint.Slides.Slide;
+import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerComponent;
 
 import java.util.ArrayList;
 

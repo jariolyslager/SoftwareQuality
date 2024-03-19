@@ -1,4 +1,7 @@
-package org.example;
+package com.nhlstenden.JabberPoint.Slideviewers;
+
+import com.nhlstenden.JabberPoint.PresentationControls.Presentation;
+import com.nhlstenden.JabberPoint.Slides.Slide;
 
 import java.awt.Color;
 import java.awt.Font;

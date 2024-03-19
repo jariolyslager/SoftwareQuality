@@ -1,4 +1,4 @@
-package org.example;
+package com.nhlstenden.JabberPoint.PresentationControls;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyAdapter;

@@ -1,4 +1,8 @@
-package org.example;
+package com.nhlstenden.JabberPoint.PresentationControls;
+
+import com.nhlstenden.JabberPoint.AboutBox.AboutBox;
+import com.nhlstenden.JabberPoint.Accessors.Accessor;
+import com.nhlstenden.JabberPoint.Accessors.XMLAccessor;
 
 import java.awt.MenuBar;
 import java.awt.Frame;

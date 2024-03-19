@@ -1,4 +1,8 @@
-package org.example;
+package com.nhlstenden.JabberPoint.Accessors;
+
+import com.nhlstenden.JabberPoint.PresentationControls.Presentation;
+import com.nhlstenden.JabberPoint.Slides.BitmapItem;
+import com.nhlstenden.JabberPoint.Slides.Slide;
 
 /** Een ingebouwde demo-presentatie
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
