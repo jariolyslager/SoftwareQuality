@@ -30,7 +30,7 @@ jobs:
     # Approve commit manually
     manual-approval:
         - name: Manual Workflow Approval
-        steps:
+          steps:
             - uses: trstringer/manual-approval@v1
               with:
                 secret: ${{ github.TOKEN }}
