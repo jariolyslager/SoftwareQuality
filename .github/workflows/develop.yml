@@ -49,6 +49,8 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Testing
+              with:
+                gradle-version: '8.5'
               run: |
                 cd ${{ github.workspace }}
                 cd ..
