@@ -29,10 +29,10 @@ jobs:
         
     # Approve commit manually
     manual-approval:
-        - name: Manual Workflow Approval
-          steps:
-            - uses: trstringer/manual-approval@v1
-              with:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: trstringer/manual-approval@v1
+            with:
                 secret: ${{ github.TOKEN }}
                 approvers: jariolyslager,kay-westerhof
                 minimum-approvals: 1
