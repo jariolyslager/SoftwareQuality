@@ -51,4 +51,4 @@ jobs:
             - name: Testing
               run: |
                 cd ${{ github.workspace }}
-                gradlew test
+                /gradlew test
