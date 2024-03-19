@@ -50,5 +50,5 @@ jobs:
         steps:
             - name: Testing
               run: |
-                cd SoftwareQuality  # Change directory to the root directory of your project
+                cd ${{ github.workspace }}
                 ./gradlew test

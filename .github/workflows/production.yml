@@ -34,7 +34,7 @@ jobs:
         steps:
             - name: Publish package
               run: |
-                cd SoftwareQuality  # Change directory to the root directory of your project
+                cd ${{ github.workspace }}
                 ./gradlew test
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
