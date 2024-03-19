@@ -65,6 +65,5 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Testing
-              run: .\gradlew test
-              working-directory: /SoftwareQuality
+              run: gradlew test
         
