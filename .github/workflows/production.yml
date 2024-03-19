@@ -33,6 +33,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Publish package
+              run: gradle init
               run: gradle publish
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
