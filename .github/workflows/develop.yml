@@ -43,7 +43,7 @@ jobs:
               DEFAULT_BRANCH: "main"
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               
-    # Run unit tests
-    run-unit-tests:
-        - name: Run Gradle tests
+    # Run tests
+    run-tests:
+        - name: Testing
             run: ./gradlew test
