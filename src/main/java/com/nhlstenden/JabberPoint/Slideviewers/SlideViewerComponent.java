@@ -22,7 +22,8 @@ import javax.swing.JFrame;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class SlideViewerComponent extends JComponent {
+public class SlideViewerComponent extends JComponent
+{
 		
 	private Slide slide; // de huidige slide
 	private Font labelFont = null; // het font voor labels
@@ -39,20 +40,25 @@ public class SlideViewerComponent extends JComponent {
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation pres, JFrame frame) {
+	public SlideViewerComponent(Presentation pres, JFrame frame)
+	{
 		setBackground(BGCOLOR); 
 		presentation = pres;
 		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
 
-	public Dimension getPreferredSize() {
+	public Dimension getPreferredSize()
+	{
 		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
 	}
 
-	public void update(Presentation presentation, Slide data) {
-		if (data == null) {
+	public void update(Presentation presentation, Slide data)
+	{
+		if (data == null)
+		{
 			repaint();
+
 			return;
 		}
 		this.presentation = presentation;
@@ -62,10 +68,12 @@ public class SlideViewerComponent extends JComponent {
 	}
 
 // teken de slide
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g)
+	{
 		g.setColor(BGCOLOR);
 		g.fillRect(0, 0, getSize().width, getSize().height);
-		if (presentation.getSlideNumber() < 0 || slide == null) {
+		if (presentation.getSlideNumber() < 0 || slide == null)
+		{
 			return;
 		}
 		g.setFont(labelFont);

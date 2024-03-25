@@ -14,9 +14,11 @@ import com.nhlstenden.JabberPoint.Slides.Slide;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-class DemoPresentation extends Accessor {
+class DemoPresentation extends Accessor
+{
 
-	public void loadFile(Presentation presentation, String fileName) {
+	public void loadFile(Presentation presentation, String fileName)
+	{
 		presentation.setTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
@@ -54,7 +56,8 @@ class DemoPresentation extends Accessor {
 		presentation.append(slide);
 	}
 
-	public void saveFile(Presentation presentation, String fileName) {
+	public void saveFile(Presentation presentation, String fileName)
+	{
 		throw new IllegalStateException("Save As->Demo! aangeroepen");
 	}
 }

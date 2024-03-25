@@ -16,7 +16,8 @@ import java.awt.Font;
  * @version 1.6 2014/05/16 Sylvia Stuurman
  */
 
-public class Style {
+public class Style
+{
 	private static Style[] styles; // de styles
 	
 	private static final String FONTNAME = "Helvetica";
@@ -26,51 +27,63 @@ public class Style {
 	private int fontSize;
 	private int leading;
 
-    public static Style[] getStyles() {
+    public static Style[] getStyles()
+    {
         return styles;
     }
 
-    public static void setStyles(Style[] styles) {
+    public static void setStyles(Style[] styles)
+    {
         Style.styles = styles;
     }
 
-    public int getIndent() {
+    public int getIndent()
+    {
         return this.indent;
     }
 
-    public void setIndent(int indent) {
+    public void setIndent(int indent)
+    {
         this.indent = indent;
     }
 
-    public Color getColor() {
+    public Color getColor()
+    {
         return this.color;
     }
 
-    public void setColor(Color color) {
+    public void setColor(Color color)
+    {
         this.color = color;
     }
 
-    public void setFont(Font font) {
+    public void setFont(Font font)
+    {
         this.font = font;
     }
 
-    public int getFontSize() {
+    public int getFontSize()
+    {
         return this.fontSize;
     }
 
-    public void setFontSize(int fontSize) {
+    public void setFontSize(int fontSize)
+    {
         this.fontSize = fontSize;
     }
 
-    public int getLeading() {
+    public int getLeading()
+    {
         return this.leading;
     }
 
-    public void setLeading(int leading) {
+    public void setLeading(int leading)
+    {
         this.leading = leading;
     }
 
-    public static void createStyles() {
+    public static void createStyles()
+    {
 		styles = new Style[5];    
 		// De styles zijn vast ingecodeerd.
 		styles[0] = new Style(0, Color.red,   48, 20);	// style voor item-level 0
@@ -80,25 +93,31 @@ public class Style {
 		styles[4] = new Style(90, Color.black, 24, 10);	// style voor item-level 4
 	}
 
-	public static Style getStyle(int level) {
-		if (level >= styles.length) {
+	public static Style getStyle(int level)
+    {
+		if (level >= styles.length)
+        {
 			level = styles.length - 1;
 		}
+
 		return styles[level];
 	}
 
-	public Style(int indent, Color color, int points, int leading) {
+	public Style(int indent, Color color, int points, int leading)
+    {
 		this.indent = indent;
 		this.color = color;
 		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
 		this.leading = leading;
 	}
 
-	public String toString() {
+	public String toString()
+    {
 		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
 	}
 
-	public Font getFont(float scale) {
+	public Font getFont(float scale)
+    {
 		return font.deriveFont(fontSize * scale);
 	}
 }
