@@ -20,13 +20,61 @@ public class Style {
 	private static Style[] styles; // de styles
 	
 	private static final String FONTNAME = "Helvetica";
-	public int indent;
-	public Color color;
-	Font font;
-	int fontSize;
-	public int leading;
+	private int indent;
+	private Color color;
+	private Font font;
+	private int fontSize;
+	private int leading;
 
-	public static void createStyles() {
+    public static Style[] getStyles() {
+        return styles;
+    }
+
+    public static void setStyles(Style[] styles) {
+        Style.styles = styles;
+    }
+
+    public int getIndent() {
+        return indent;
+    }
+
+    public void setIndent(int indent) {
+        this.indent = indent;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+    }
+
+    public Font getFont() {
+        return font;
+    }
+
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    public int getFontSize() {
+        return fontSize;
+    }
+
+    public void setFontSize(int fontSize) {
+        this.fontSize = fontSize;
+    }
+
+    public int getLeading() {
+        return leading;
+    }
+
+    public void setLeading(int leading) {
+        this.leading = leading;
+    }
+
+    public static void createStyles() {
 		styles = new Style[5];    
 		// De styles zijn vast ingecodeerd.
 		styles[0] = new Style(0, Color.red,   48, 20);	// style voor item-level 0
