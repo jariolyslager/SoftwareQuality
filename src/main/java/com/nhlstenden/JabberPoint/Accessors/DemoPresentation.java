@@ -16,7 +16,7 @@ import com.nhlstenden.JabberPoint.Slides.Slide;
 
 class DemoPresentation extends Accessor {
 
-	public void loadFile(Presentation presentation, String unusedFilename) {
+	public void loadFile(Presentation presentation, String fileName) {
 		presentation.setTitle("Demo Presentation");
 		Slide slide;
 		slide = new Slide();
@@ -54,7 +54,7 @@ class DemoPresentation extends Accessor {
 		presentation.append(slide);
 	}
 
-	public void saveFile(Presentation presentation, String unusedFilename) {
+	public void saveFile(Presentation presentation, String fileName) {
 		throw new IllegalStateException("Save As->Demo! aangeroepen");
 	}
 }

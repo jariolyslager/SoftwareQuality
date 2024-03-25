@@ -59,11 +59,11 @@ public class XMLAccessor extends Accessor {
     	
     }
 
-	public void loadFile(Presentation presentation, String filename) throws IOException {
+	public void loadFile(Presentation presentation, String fileName) throws IOException {
 		int slideNumber, itemNumber, max = 0, maxItems = 0;
 		try {
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();    
-			Document document = builder.parse(new File(filename)); // maak een JDOM document
+			Document document = builder.parse(new File(fileName)); // maak een JDOM document
 			Element doc = document.getDocumentElement();
 			presentation.setTitle(getTitle(doc, SHOWTITLE));
 
@@ -120,8 +120,8 @@ public class XMLAccessor extends Accessor {
 		}
 	}
 
-	public void saveFile(Presentation presentation, String filename) throws IOException {
-		PrintWriter out = new PrintWriter(new FileWriter(filename));
+	public void saveFile(Presentation presentation, String fileName) throws IOException {
+		PrintWriter out = new PrintWriter(new FileWriter(fileName));
 		out.println("<?xml version=\"1.0\"?>");
 		out.println("<!DOCTYPE presentation SYSTEM \"jabberpoint.dtd\">");
 		out.println("<presentation>");
