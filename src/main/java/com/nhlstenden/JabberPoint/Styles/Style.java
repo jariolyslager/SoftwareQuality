@@ -35,7 +35,7 @@ public class Style {
     }
 
     public int getIndent() {
-        return indent;
+        return this.indent;
     }
 
     public void setIndent(int indent) {
@@ -43,7 +43,7 @@ public class Style {
     }
 
     public Color getColor() {
-        return color;
+        return this.color;
     }
 
     public void setColor(Color color) {
@@ -55,7 +55,7 @@ public class Style {
     }
 
     public int getFontSize() {
-        return fontSize;
+        return this.fontSize;
     }
 
     public void setFontSize(int fontSize) {
@@ -63,7 +63,7 @@ public class Style {
     }
 
     public int getLeading() {
-        return leading;
+        return this.leading;
     }
 
     public void setLeading(int leading) {
