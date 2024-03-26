@@ -87,16 +87,16 @@ public class MenuController extends MenuBar
 		});
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
 		menuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
+			public void actionPerformed(ActionEvent actionEvent)
 			{
 				Accessor xmlAccessor = new XMLAccessor();
 				try
 				{
 					xmlAccessor.saveFile(MenuController.this.presentation, SAVEFILE);
 				}
-				catch (IOException exc)
+				catch (IOException exception)
 				{
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
+					JOptionPane.showMessageDialog(parent, IOEX + exception,
 							SAVEERR, JOptionPane.ERROR_MESSAGE);
 				}
 			}
