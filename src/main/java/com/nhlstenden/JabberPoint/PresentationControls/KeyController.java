@@ -30,16 +30,16 @@ public class KeyController extends KeyAdapter
 			case KeyEvent.VK_DOWN:
 			case KeyEvent.VK_ENTER:
 			case '+':
-				presentation.nextSlide();
+				new NextSlideCommand(this.presentation).execute();
 				break;
 			case KeyEvent.VK_PAGE_UP:
 			case KeyEvent.VK_UP:
 			case '-':
-				presentation.prevSlide();
+				new PrevSlideCommand(this.presentation).execute();
 				break;
 			case 'q':
 			case 'Q':
-				System.exit(0);
+				new QuitCommand(this.presentation).execute();
 				break; // wordt nooit bereikt als het goed is
 			default:
 				break;
