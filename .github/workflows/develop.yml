@@ -46,6 +46,6 @@ jobs:
             #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             #  JAVA_FILE_NAME: 
               
-          - uses: axel-op/googlejavaformat-action@v3
+            uses: axel-op/googlejavaformat-action@v3
             with:
                 args: "--skip-sorting-imports --replace"
