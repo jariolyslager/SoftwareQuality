@@ -39,16 +39,10 @@ jobs:
                 fetch-depth: 0
 
           - name: Lint Code Base
-            #uses: github/super-linter@v4
-            #env:
-            #  VALIDATE_ALL_CODEBASE: false
-            #  DEFAULT_BRANCH: "main"
-            #  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            #  JAVA_FILE_NAME: 
-              
-            uses: axel-op/googlejavaformat-action@v3.6.0
-            with:
-                args: "--replace"
-                skip-commit: true
-          - name: Print diffs
-            run: git --no-pager diff --exit-code
+            uses: github/super-linter@v4
+            env:
+              VALIDATE_ALL_CODEBASE: false
+              DEFAULT_BRANCH: "main"
+              GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              JAVA_FILE_NAME: 
+            
