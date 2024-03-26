@@ -17,9 +17,9 @@ public class KeyController extends KeyAdapter
 {
 	private Presentation presentation; // Er worden commando's gegeven aan de presentatie
 
-	public KeyController(Presentation p)
+	public KeyController(Presentation presentation)
 	{
-		presentation = p;
+		this.presentation = presentation;
 	}
 
 	public void keyPressed(KeyEvent keyEvent)
