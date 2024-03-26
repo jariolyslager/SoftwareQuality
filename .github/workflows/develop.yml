@@ -44,5 +44,5 @@ jobs:
               VALIDATE_ALL_CODEBASE: false
               DEFAULT_BRANCH: "main"
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              JAVA_FILE_NAME: 
+              JAVA_FILE_NAME: sun_checks_custom.xml
             
