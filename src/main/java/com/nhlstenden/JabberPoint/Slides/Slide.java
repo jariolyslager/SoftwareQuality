@@ -21,8 +21,8 @@ public class Slide
 {
 	public final static int WIDTH = 1200;
 	public final static int HEIGHT = 800;
-	protected String title; // de titel wordt apart bewaard
-	protected Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
+	private String title; // de titel wordt apart bewaard
+	private Vector<SlideItem> items; // de slide-items worden in een Vector bewaard
 
 	public Slide()
 	{
