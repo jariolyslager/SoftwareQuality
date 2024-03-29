@@ -35,7 +35,7 @@ public class JabberPoint
 	{
 		
 		Style.createStyles();
-		Presentation presentation = new Presentation();
+		Presentation presentation = Presentation.getInstance();
 		new SlideViewerFrame(JABVERSION, presentation);
 		try
 		{
