@@ -39,7 +39,7 @@ public class BitmapItem extends SlideItem
 		imageName = name;
 		try
 		{
-			bufferedImage = ImageIO.read(new File(imageName));
+			bufferedImage = ImageIO.read(getClass().getResourceAsStream("/" + imageName));
 		}
 		catch (IOException e)
 		{
