@@ -24,6 +24,7 @@ public class Presentation
 	private ArrayList<Slide> showList = null; // een ArrayList met de Slides
 	private int currentSlideNumber = 0; // het slidenummer van de huidige Slide
 	private SlideViewerComponent slideViewComponent = null; // de viewcomponent voor de Slides
+	private volatile Presentation instance;
 
 	public Presentation()
 	{
@@ -124,5 +125,18 @@ public class Presentation
 	public void exit(int number)
 	{
 		System.exit(number);
+	}
+
+	public synchronized Presentation getInstance()
+	{
+		if (this.instance == null)
+		{
+			this.instance = new Presentation();
+			return this.instance;
+		}
+		else
+		{
+			return this.instance;
+		}
 	}
 }
