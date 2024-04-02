@@ -71,7 +71,7 @@ public class XMLAccessor extends Accessor
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document document = builder.parse(inputStream);
 			Element doc = document.getDocumentElement();
-			presentation.setTitle(getTitle(doc, SHOWTITLE));
+			presentation.setTitle(this.getTitle(doc, SHOWTITLE));
 
 			NodeList slides = doc.getElementsByTagName(SLIDE);
 			max = slides.getLength();
@@ -80,7 +80,7 @@ public class XMLAccessor extends Accessor
 			{
 				Element xmlSlide = (Element) slides.item(slideNumber);
 				Slide slide = new Slide();
-				slide.setTitle(getTitle(xmlSlide, SLIDETITLE));
+				slide.setTitle(this.getTitle(xmlSlide, SLIDETITLE));
 				presentation.append(slide);
 				
 				NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
@@ -89,7 +89,7 @@ public class XMLAccessor extends Accessor
 				for (itemNumber = 0; itemNumber < maxItems; itemNumber++)
 				{
 					Element item = (Element) slideItems.item(itemNumber);
-					loadSlideItem(slide, item);
+					this.loadSlideItem(slide, item);
 				}
 			}
 		} 
@@ -169,7 +169,7 @@ public class XMLAccessor extends Accessor
 				if (slideItem instanceof TextItem)
 				{
 					out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
-					out.print( ( (TextItem) slideItem).getText());
+					out.print(((TextItem) slideItem).getText());
 				}
 				else
 				{
@@ -189,7 +189,7 @@ public class XMLAccessor extends Accessor
 
 			out.println("</slide>");
 		}
-		
+
 		out.println("</presentation>");
 		out.close();
 	}
