@@ -32,7 +32,7 @@ public class BitmapItem extends SlideItem
   protected static final String FILE = "Bestand ";
   protected static final String NOTFOUND = " niet gevonden";
 
-// level staat voor het item-level; name voor de naam van het bestand met de afbeelding
+	// level staat voor het item-level; name voor de naam van het bestand met de afbeelding
 	public BitmapItem(int level, String name)
 	{
 		super(level);
@@ -47,19 +47,19 @@ public class BitmapItem extends SlideItem
 		}
 	}
 
-// Een leeg bitmap-item
+	// Een leeg bitmap-item
 	public BitmapItem()
 	{
 		this(0, null);
 	}
 
-// geef de bestandsnaam van de afbeelding
+	// geef de bestandsnaam van de afbeelding
 	public String getName()
 	{
 		return imageName;
 	}
 
-// geef de bounding box van de afbeelding
+	// geef de bounding box van de afbeelding
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
 	{
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0,
@@ -68,7 +68,7 @@ public class BitmapItem extends SlideItem
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
 
-// teken de afbeelding
+	// teken de afbeelding
 	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer)
 	{
 		int width = x + (int) (myStyle.getIndent() * scale);
