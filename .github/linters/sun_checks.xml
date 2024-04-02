@@ -102,7 +102,7 @@
 	<!-- Checks for the specified tokens that they aren't followed by a whitespace. -->
 	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/nowhitespaceafter.html#NoWhitespaceAfter -->
     <module name="NoWhitespaceAfter">
-		<property name="tokens" value="ARRAY_INIT, AT, UNARY_MINUS, BNOT, LNOT, DOT, INDEX_OP, LITERAL_SYNCHRONIZED, METHOD_REF"/>
+		<property name="tokens" value="ARRAY_INIT, AT, UNARY_MINUS, BNOT, LNOT, DOT, INDEX_OP, METHOD_REF"/>
 	</module>
 	
 	<!-- Checks for the specified tokens that they aren't prefaced by a whitespace. -->

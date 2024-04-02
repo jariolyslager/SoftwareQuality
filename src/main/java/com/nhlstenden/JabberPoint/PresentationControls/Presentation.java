@@ -29,13 +29,13 @@ public class Presentation
 	public Presentation()
 	{
 		this.slideViewComponent = null;
-		clear();
+		this.clear();
 	}
 
 	public Presentation(SlideViewerComponent slideViewerComponent)
 	{
 		this.slideViewComponent = slideViewerComponent;
-		clear();
+		this.clear();
 	}
 
 	public int getSize()
@@ -70,7 +70,7 @@ public class Presentation
 		this.currentSlideNumber = number;
 		if (this.slideViewComponent != null)
 		{
-			this.slideViewComponent.update(this, getCurrentSlide());
+			this.slideViewComponent.update(this, this.getCurrentSlide());
 		}
 	}
 
