@@ -18,7 +18,8 @@ import java.awt.Font;
 
 public class Style
 {
-	private static Style[] styles; // de styles
+    // De styles
+	private static Style[] styles;
 	
 	private static final String FONTNAME = "Helvetica";
 	private int indent;
@@ -107,17 +108,17 @@ public class Style
     {
 		this.indent = indent;
 		this.color = color;
-		font = new Font(FONTNAME, Font.BOLD, fontSize=points);
+		this.font = new Font(FONTNAME, Font.BOLD, fontSize = points);
 		this.leading = leading;
 	}
 
 	public String toString()
     {
-		return "["+ indent + "," + color + "; " + fontSize + " on " + leading +"]";
+		return "[" + indent + "," + color + "; " + fontSize + " on " + leading + "]";
 	}
 
 	public Font getFont(float scale)
     {
-		return font.deriveFont(fontSize * scale);
+		return this.font.deriveFont(this.fontSize * scale);
 	}
 }
