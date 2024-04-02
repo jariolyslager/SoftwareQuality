@@ -34,7 +34,7 @@ public class SaveCommand extends Command
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(parent, IOEX + exception, SAVEERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.parent, IOEX + exception, SAVEERR, JOptionPane.ERROR_MESSAGE);
         }
     }
 }
