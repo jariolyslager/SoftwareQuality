@@ -73,7 +73,7 @@
 	<!-- Checks if names of packages follow the specified format. -->
 	<!-- From: https://checkstyle.sourceforge.io/checks/naming/packagename.html#PackageName -->
     <module name="PackageName">
-		<property name="format" value="^[A-Z](_?[a-zA-Z0-9]+)*$"/>
+		<property name="format" value="^[a-z]+(\.[a-zA-Z_]\w*)*$"/>
 	</module>
 	
 	<!-- Checks if names of the specified tokens follow the specified format. -->
