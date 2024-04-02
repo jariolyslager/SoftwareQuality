@@ -1,10 +1,7 @@
 package com.nhlstenden.JabberPoint.Accessors;
 
+import java.io.*;
 import java.util.Vector;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.FileWriter;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -64,10 +61,13 @@ public class XMLAccessor extends Accessor
 	public void loadFile(Presentation presentation, String fileName) throws IOException
 	{
 		int slideNumber, itemNumber, max = 0, maxItems = 0;
-		try
-		{
-			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();    
-			Document document = builder.parse(new File(fileName)); // maak een JDOM document
+		try {
+			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
+			if (inputStream == null) {
+				throw new FileNotFoundException("File not found in resources: " + fileName);
+			}
+			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
+			Document document = builder.parse(inputStream);
 			Element doc = document.getDocumentElement();
 			presentation.setTitle(getTitle(doc, SHOWTITLE));
 
