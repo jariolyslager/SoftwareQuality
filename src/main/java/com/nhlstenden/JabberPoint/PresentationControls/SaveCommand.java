@@ -27,14 +27,14 @@ public class SaveCommand extends Command
     public void execute()
     {
         Accessor xmlAccessor = new AccessorCreator().createAccessor(AccessorEnum.XML);
+
         try
         {
             xmlAccessor.saveFile(this.getPresentation(), SAVEFILE);
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(parent, IOEX + exception,
-                    SAVEERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(parent, IOEX + exception, SAVEERR, JOptionPane.ERROR_MESSAGE);
         }
     }
 }

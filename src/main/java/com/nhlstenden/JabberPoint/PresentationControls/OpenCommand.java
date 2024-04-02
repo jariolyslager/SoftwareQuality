@@ -27,6 +27,7 @@ public class OpenCommand extends Command
     {
         this.getPresentation().clear();
         Accessor xmlAccessor = new AccessorCreator().createAccessor(AccessorEnum.XML);
+
         try
         {
             xmlAccessor.loadFile(this.getPresentation(), TESTFILE);
@@ -34,9 +35,9 @@ public class OpenCommand extends Command
         }
         catch (IOException exc)
         {
-            JOptionPane.showMessageDialog(this.parent, IOEX + exc,
-                    LOADERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
         }
+
         this.parent.repaint();
     }
 }
