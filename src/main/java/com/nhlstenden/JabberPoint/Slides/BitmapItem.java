@@ -53,13 +53,13 @@ public class BitmapItem extends SlideItem
 		this(0, null);
 	}
 
-	// geef de bestandsnaam van de afbeelding
+	// Geef de bestandsnaam van de afbeelding
 	public String getName()
 	{
 		return imageName;
 	}
 
-	// geef de bounding box van de afbeelding
+	// Geef de bounding box van de afbeelding
 	public Rectangle getBoundingBox(Graphics g, ImageObserver observer, float scale, Style myStyle)
 	{
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0,
@@ -68,7 +68,7 @@ public class BitmapItem extends SlideItem
 				(int) (bufferedImage.getHeight(observer) * scale));
 	}
 
-	// teken de afbeelding
+	// Teken de afbeelding
 	public void draw(int x, int y, float scale, Graphics g, Style myStyle, ImageObserver observer)
 	{
 		int width = x + (int) (myStyle.getIndent() * scale);
