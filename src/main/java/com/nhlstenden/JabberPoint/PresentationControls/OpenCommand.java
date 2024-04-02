@@ -37,6 +37,6 @@ public class OpenCommand extends Command
             JOptionPane.showMessageDialog(this.parent, IOEX + exc,
                     LOADERR, JOptionPane.ERROR_MESSAGE);
         }
-        parent.repaint();
+        this.parent.repaint();
     }
 }

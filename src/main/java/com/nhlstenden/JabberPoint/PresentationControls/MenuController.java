@@ -62,15 +62,14 @@ public class MenuController extends MenuBar
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				new OpenCommand(presentation, parent).execute();
+				new OpenCommand(Presentation.getInstance(), parent).execute();
 			}
 		} );
 		fileMenu.add(menuItem = mkMenuItem(NEW));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				MenuController.this.presentation.clear();
-				parent.repaint();
+				new NewCommand(Presentation.getInstance(), parent).execute();
 			}
 		});
 		fileMenu.add(menuItem = mkMenuItem(SAVE));
