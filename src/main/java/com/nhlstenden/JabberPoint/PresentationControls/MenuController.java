@@ -62,19 +62,7 @@ public class MenuController extends MenuBar
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				MenuController.this.presentation.clear();
-				Accessor xmlAccessor = new XMLAccessor();
-				try
-				{
-					xmlAccessor.loadFile(MenuController.this.presentation, TESTFILE);
-					MenuController.this.presentation.setSlideNumber(0);
-				}
-				catch (IOException exc)
-				{
-					JOptionPane.showMessageDialog(parent, IOEX + exc, 
-         			LOADERR, JOptionPane.ERROR_MESSAGE);
-				}
-				parent.repaint();
+				new OpenCommand(presentation, parent).execute();
 			}
 		} );
 		fileMenu.add(menuItem = mkMenuItem(NEW));
