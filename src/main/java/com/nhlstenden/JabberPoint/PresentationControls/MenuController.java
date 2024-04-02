@@ -102,14 +102,14 @@ public class MenuController extends MenuBar
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				MenuController.this.presentation.nextSlide();
+				new NextSlideCommand(Presentation.getInstance()).execute();
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(PREV));
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				MenuController.this.presentation.prevSlide();
+				new PrevSlideCommand(Presentation.getInstance()).execute();
 			}
 		});
 		viewMenu.add(menuItem = mkMenuItem(GOTO));
