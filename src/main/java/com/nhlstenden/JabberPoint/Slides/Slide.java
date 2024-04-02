@@ -50,9 +50,9 @@ public class Slide
 	}
 
 	// Maak een TextItem van String, en voeg het TextItem toe
-	public void append(int level, String message)
+	public void appendTextItem(int level, String message)
 	{
-		append(new TextItem(level, message));
+		this.append(new TextItem(level, message));
 	}
 
 	// Geef het betreffende SlideItem
@@ -79,18 +79,18 @@ public class Slide
 		float scale = this.getScale(area);
 	    int y = area.y;
 		// De titel wordt apart behandeld
-	    SlideItem slideItem = new TextItem(0, this.getTitle());
-	    Style style = Style.getStyle(slideItem.getLevel());
-	    slideItem.draw(area.x, y, scale, graphics, style, view);
-	    y += slideItem.getBoundingBox(graphics, view, scale, style).height;
-	    for (int number = 0; number < this.getSize(); number++)
+		SlideItem slideItem = new TextItem(0, this.getTitle());
+		Style style = Style.getStyle(slideItem.getLevel());
+		slideItem.draw(area.x, y, scale, graphics, style, view);
+		y += slideItem.getBoundingBox(graphics, view, scale, style).height;
+		for (int number = 0; number < this.getSize(); number++)
 		{
-	      slideItem = (SlideItem) this.getSlideItems().elementAt(number);
-	      style = Style.getStyle(slideItem.getLevel());
-	      slideItem.draw(area.x, y, scale, graphics, style, view);
-	      y += slideItem.getBoundingBox(graphics, view, scale, style).height;
+	    	slideItem = (SlideItem) this.getSlideItems().elementAt(number);
+			style = Style.getStyle(slideItem.getLevel());
+			slideItem.draw(area.x, y, scale, graphics, style, view);
+			y += slideItem.getBoundingBox(graphics, view, scale, style).height;
 	    }
-	  }
+	}
 
 	// Geef de schaal om de slide te kunnen tekenen
 	private float getScale(Rectangle area)
