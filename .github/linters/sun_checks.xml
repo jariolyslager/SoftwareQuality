@@ -73,13 +73,13 @@
 	<!-- Checks if names of packages follow the specified format. -->
 	<!-- From: https://checkstyle.sourceforge.io/checks/naming/packagename.html#PackageName -->
     <module name="PackageName">
-		<property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+		<property name="format" value="^[a-z]+(\.[a-zA-Z_]\w*)*$"/>
 	</module>
 	
 	<!-- Checks if names of the specified tokens follow the specified format. -->
 	<!-- From: https://checkstyle.sourceforge.io/checks/naming/typename.html#TypeName -->
     <module name="TypeName">
-		<property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+		<property name="format" value="^[A-Z](_?[a-zA-Z0-9]+)*$"/>
 		<property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF"/>
 	</module>
 	
@@ -94,10 +94,6 @@
 	<module name="RequireThis">
 		<property name="validateOnlyOverlapping" value="false"/>
 	</module>
-
-	<!-- Checks for correct indentation. Default indentation size is 4 spaces. -->
-	<!-- From: https://checkstyle.sourceforge.io/checks/misc/indentation.html#Indentation -->
-	<module name="Indentation"/>
 	
 	<!-- Checks if comments are indented to the same level as the first code below. -->
 	<!-- From: https://checkstyle.sourceforge.io/checks/misc/commentsindentation.html#CommentsIndentation -->
@@ -165,6 +161,8 @@
 	<!-- Other possible TreeWalker checks which can be added if necessary -->
 	
 	<!--
+	<module name="Indentation"/>
+	
 	<module name="InvalidJavadocPosition"/>
     <module name="JavadocMethod"/>
     <module name="JavadocType"/>
