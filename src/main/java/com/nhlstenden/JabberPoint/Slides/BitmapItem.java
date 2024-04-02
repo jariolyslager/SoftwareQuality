@@ -37,13 +37,14 @@ public class BitmapItem extends SlideItem
 	{
 		super(level);
 		this.imageName = name;
+
 		try
 		{
-			bufferedImage = ImageIO.read(getClass().getResourceAsStream("/" + imageName));
+			this.bufferedImage = ImageIO.read(getClass().getResourceAsStream("/" + this.imageName));
 		}
 		catch (IOException e)
 		{
-			System.err.println(FILE + imageName + NOTFOUND) ;
+			System.err.println(FILE + this.imageName + NOTFOUND);
 		}
 	}
 
@@ -63,9 +64,9 @@ public class BitmapItem extends SlideItem
 	public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle)
 	{
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0,
-				(int) (bufferedImage.getWidth(observer) * scale),
+				(int) (this.bufferedImage.getWidth(observer) * scale),
 				((int) (myStyle.getLeading() * scale)) +
-				(int) (bufferedImage.getHeight(observer) * scale));
+				(int) (this.bufferedImage.getHeight(observer) * scale));
 	}
 
 	// Teken de afbeelding
@@ -73,12 +74,12 @@ public class BitmapItem extends SlideItem
 	{
 		int width = x + (int) (myStyle.getIndent() * scale);
 		int height = y + (int) (myStyle.getLeading() * scale);
-		graphics.drawImage(bufferedImage, width, height,(int) (bufferedImage.getWidth(observer)*scale),
-                (int) (bufferedImage.getHeight(observer)*scale), observer);
+		graphics.drawImage(this.bufferedImage, width, height, (int) (this.bufferedImage.getWidth(observer) * scale),
+                (int) (this.bufferedImage.getHeight(observer) * scale), observer);
 	}
 
 	public String toString()
 	{
-		return "BitmapItem[" + getLevel() + "," + imageName + "]";
+		return "BitmapItem[" + getLevel() + "," + this.imageName + "]";
 	}
 }
