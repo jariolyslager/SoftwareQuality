@@ -36,8 +36,7 @@ public class BitmapItem extends SlideItem
 	public BitmapItem(int level, String name)
 	{
 		super(level);
-		imageName = name;
-		
+		this.imageName = name;
 		try
 		{
 			bufferedImage = ImageIO.read(getClass().getResourceAsStream("/" + imageName));
@@ -57,7 +56,7 @@ public class BitmapItem extends SlideItem
 	// Geef de bestandsnaam van de afbeelding
 	public String getName()
 	{
-		return imageName;
+		return this.imageName;
 	}
 
 	// Geef de bounding box van de afbeelding
