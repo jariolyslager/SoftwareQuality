@@ -24,10 +24,12 @@ import javax.swing.JFrame;
 
 public class SlideViewerComponent extends JComponent
 {
-		
-	private Slide slide; // de huidige slide
-	private Font labelFont = null; // het font voor labels
-	private Presentation presentation = null; // de presentatie
+	// De huidige slide
+	private Slide slide;
+	// Het font voor labels
+	private Font labelFont = null;
+	// De presentatie
+	private Presentation presentation = null;
 	private JFrame frame = null;
 	
 	private static final long serialVersionUID = 227L;
@@ -40,11 +42,11 @@ public class SlideViewerComponent extends JComponent
 	private static final int XPOS = 1100;
 	private static final int YPOS = 20;
 
-	public SlideViewerComponent(Presentation pres, JFrame frame)
+	public SlideViewerComponent(Presentation presentation, JFrame frame)
 	{
 		setBackground(BGCOLOR); 
-		presentation = pres;
-		labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
+		this.presentation = presentation;
+		this.labelFont = new Font(FONTNAME, FONTSTYLE, FONTHEIGHT);
 		this.frame = frame;
 	}
 
@@ -53,34 +55,35 @@ public class SlideViewerComponent extends JComponent
 		return new Dimension(Slide.WIDTH, Slide.HEIGHT);
 	}
 
-	public void update(Presentation presentation, Slide data)
+	public void update(Presentation presentation, Slide slideData)
 	{
-		if (data == null)
+		if (slideData == null)
 		{
 			repaint();
 
 			return;
 		}
+
 		this.presentation = presentation;
-		this.slide = data;
+		this.slide = slideData;
 		repaint();
-		frame.setTitle(presentation.getTitle());
+		this.frame.setTitle(presentation.getTitle());
 	}
 
-// teken de slide
-	public void paintComponent(Graphics g)
+	// Teken de slide
+	public void paintComponent(Graphics graphics)
 	{
-		g.setColor(BGCOLOR);
-		g.fillRect(0, 0, getSize().width, getSize().height);
-		if (presentation.getSlideNumber() < 0 || slide == null)
+		graphics.setColor(BGCOLOR);
+		graphics.fillRect(0, 0, getSize().width, getSize().height);
+		if (this.presentation.getSlideNumber() < 0 || this.slide == null)
 		{
 			return;
 		}
-		g.setFont(labelFont);
-		g.setColor(COLOR);
-		g.drawString("Slide " + (1 + presentation.getSlideNumber()) + " of " +
-                 presentation.getSize(), XPOS, YPOS);
+
+		graphics.setFont(labelFont);
+		graphics.setColor(COLOR);
+		graphics.drawString("Slide " + (1 + this.presentation.getSlideNumber()) + " of " + this.presentation.getSize(), XPOS, YPOS);
 		Rectangle area = new Rectangle(0, YPOS, getWidth(), (getHeight() - YPOS));
-		slide.draw(g, area, this);
+		this.slide.draw(graphics, area, this);
 	}
 }
