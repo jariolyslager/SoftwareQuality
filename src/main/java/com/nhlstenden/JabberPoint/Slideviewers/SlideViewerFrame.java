@@ -40,12 +40,13 @@ public class SlideViewerFrame extends JFrame
 	public void setupWindow(SlideViewerComponent slideViewerComponent, Presentation presentation)
 	{
 		setTitle(JABTITLE);
-		addWindowListener(new WindowAdapter() {
-				public void windowClosing(WindowEvent e)
-				{
-					System.exit(0);
-				}
-			});
+		addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
 		getContentPane().add(slideViewerComponent);
 		// Een controller toevoegen
 		addKeyListener(new KeyController(presentation));
