@@ -31,7 +31,6 @@ import org.w3c.dom.NodeList;
 
 public class XMLAccessor extends Accessor
 {
-	
     /** Default API to use. */
     protected static final String DEFAULT_API_TO_USE = "dom";
     
@@ -50,7 +49,6 @@ public class XMLAccessor extends Accessor
     protected static final String UNKNOWNTYPE = "Unknown Element type";
     protected static final String NFE = "Number Format Exception";
     
-    
     private String getTitle(Element element, String tagName)
 	{
     	NodeList titles = element.getElementsByTagName(tagName);
@@ -61,11 +59,15 @@ public class XMLAccessor extends Accessor
 	public void loadFile(Presentation presentation, String fileName) throws IOException
 	{
 		int slideNumber, itemNumber, max = 0, maxItems = 0;
-		try {
+		try
+		{
 			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-			if (inputStream == null) {
+
+			if (inputStream == null)
+			{
 				throw new FileNotFoundException("File not found in resources: " + fileName);
 			}
+
 			DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 			Document document = builder.parse(inputStream);
 			Element doc = document.getDocumentElement();
@@ -73,6 +75,7 @@ public class XMLAccessor extends Accessor
 
 			NodeList slides = doc.getElementsByTagName(SLIDE);
 			max = slides.getLength();
+
 			for (slideNumber = 0; slideNumber < max; slideNumber++)
 			{
 				Element xmlSlide = (Element) slides.item(slideNumber);
@@ -82,6 +85,7 @@ public class XMLAccessor extends Accessor
 				
 				NodeList slideItems = xmlSlide.getElementsByTagName(ITEM);
 				maxItems = slideItems.getLength();
+
 				for (itemNumber = 0; itemNumber < maxItems; itemNumber++)
 				{
 					Element item = (Element) slideItems.item(itemNumber);
@@ -108,18 +112,21 @@ public class XMLAccessor extends Accessor
 		int level = 1; // default
 		NamedNodeMap attributes = item.getAttributes();
 		String leveltext = attributes.getNamedItem(LEVEL).getTextContent();
+
 		if (leveltext != null)
 		{
 			try
 			{
 				level = Integer.parseInt(leveltext);
 			}
-			catch(NumberFormatException x)
+			catch (NumberFormatException x)
 			{
 				System.err.println(NFE);
 			}
 		}
+
 		String type = attributes.getNamedItem(KIND).getTextContent();
+
 		if (TEXT.equals(type))
 		{
 			slide.append(new TextItem(level, item.getTextContent()));
@@ -146,16 +153,19 @@ public class XMLAccessor extends Accessor
 		out.print("<showtitle>");
 		out.print(presentation.getTitle());
 		out.println("</showtitle>");
-		for (int slideNumber=0; slideNumber<presentation.getSize(); slideNumber++)
+
+		for (int slideNumber = 0; slideNumber < presentation.getSize(); slideNumber++)
 		{
 			Slide slide = presentation.getSlide(slideNumber);
 			out.println("<slide>");
 			out.println("<title>" + slide.getTitle() + "</title>");
 			Vector<SlideItem> slideItems = slide.getSlideItems();
-			for (int itemNumber = 0; itemNumber<slideItems.size(); itemNumber++)
+
+			for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++)
 			{
 				SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
-				out.print("<item kind="); 
+				out.print("<item kind=");
+
 				if (slideItem instanceof TextItem)
 				{
 					out.print("\"text\" level=\"" + slideItem.getLevel() + "\">");
@@ -166,17 +176,20 @@ public class XMLAccessor extends Accessor
 					if (slideItem instanceof BitmapItem)
 					{
 						out.print("\"image\" level=\"" + slideItem.getLevel() + "\">");
-						out.print( ( (BitmapItem) slideItem).getName());
+						out.print(((BitmapItem) slideItem).getName());
 					}
 					else
 					{
 						System.out.println("Ignoring " + slideItem);
 					}
 				}
+
 				out.println("</item>");
 			}
+
 			out.println("</slide>");
 		}
+		
 		out.println("</presentation>");
 		out.close();
 	}
