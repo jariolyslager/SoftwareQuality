@@ -76,16 +76,7 @@ public class MenuController extends MenuBar
 		menuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				Accessor xmlAccessor = new XMLAccessor();
-				try
-				{
-					xmlAccessor.saveFile(MenuController.this.presentation, SAVEFILE);
-				}
-				catch (IOException exception)
-				{
-					JOptionPane.showMessageDialog(parent, IOEX + exception,
-							SAVEERR, JOptionPane.ERROR_MESSAGE);
-				}
+				new SaveCommand(Presentation.getInstance(), parent).execute();
 			}
 		});
 		fileMenu.addSeparator();
