@@ -114,7 +114,7 @@ public class MenuController extends MenuBar
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
+				String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
 				int pageNumber = Integer.parseInt(pageNumberStr);
 				MenuController.this.presentation.setSlideNumber(pageNumber - 1);
 			}
@@ -129,10 +129,10 @@ public class MenuController extends MenuBar
 				AboutBox.show(parent);
 			}
 		});
-		setHelpMenu(helpMenu);		// nodig for portability (Motif, etc.).
+		setHelpMenu(helpMenu); // Nodig for portability (Motif, etc.).
 	}
 
-// een menu-item aanmaken
+	// Een menu-item aanmaken
 	public MenuItem mkMenuItem(String name)
 	{
 		return new MenuItem(name, new MenuShortcut(name.charAt(0)));
