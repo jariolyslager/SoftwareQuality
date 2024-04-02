@@ -26,11 +26,11 @@ import java.io.IOException;
 
 public class BitmapItem extends SlideItem
 {
-  private BufferedImage bufferedImage;
-  private String imageName;
+  	private BufferedImage bufferedImage;
+  	private String imageName;
   
-  protected static final String FILE = "Bestand ";
-  protected static final String NOTFOUND = " niet gevonden";
+  	protected static final String FILE = "Bestand ";
+  	protected static final String NOTFOUND = " niet gevonden";
 
 	// level staat voor het item-level; name voor de naam van het bestand met de afbeelding
 	public BitmapItem(int level, String name)
