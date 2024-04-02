@@ -8,7 +8,7 @@ public class SlideItemCreator
 
     public SlideItem createSlideItem(SlideItemType type)
     {
-        switch(type)
+        switch (type)
         {
             case BITMAP:
                 return new BitmapItem();

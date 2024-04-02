@@ -8,7 +8,7 @@ public class AccessorCreator
 
     public Accessor createAccessor(AccessorEnum type)
     {
-        switch(type)
+        switch (type)
         {
             case XML:
                 return new XMLAccessor();
