@@ -19,11 +19,12 @@ import java.awt.image.ImageObserver;
 
 public abstract class SlideItem
 {
-	private int level = 0; // het level van het slideitem
+	// Het level van het SlideItem
+	private int level = 0;
 
-	public SlideItem(int lev)
+	public SlideItem(int level)
 	{
-		level = lev;
+		this.level = level;
 	}
 
 	public SlideItem()
@@ -31,17 +32,15 @@ public abstract class SlideItem
 		this(0);
 	}
 
-// Geef het level
+	// Geef het level
 	public int getLevel()
 	{
-		return level;
+		return this.level;
 	}
 
-// Geef de bounding box
-	public abstract Rectangle getBoundingBox(Graphics g, 
-			ImageObserver observer, float scale, Style style);
+	// Geef de bounding box
+	public abstract Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style);
 
-// teken het item
-	public abstract void draw(int x, int y, float scale, 
-			Graphics g, Style style, ImageObserver observer);
+	// Teken het item
+	public abstract void draw(int x, int y, float scale, Graphics graphics, Style style, ImageObserver observer);
 }
