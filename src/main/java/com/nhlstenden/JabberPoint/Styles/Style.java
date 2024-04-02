@@ -18,7 +18,6 @@ import java.awt.Font;
 
 public class Style
 {
-    // De styles
 	private static Style[] styles;
 	
 	private static final String FONTNAME = "Helvetica";
