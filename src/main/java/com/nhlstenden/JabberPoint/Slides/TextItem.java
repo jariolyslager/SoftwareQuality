@@ -56,7 +56,7 @@ public class TextItem extends SlideItem
 	// Geef de AttributedString voor het item
 	public AttributedString getAttributedString(Style style, float scale)
 	{
-		AttributedString attrStr = new AttributedString(getText());
+		AttributedString attrStr = new AttributedString(this.getText());
 		attrStr.addAttribute(TextAttribute.FONT, style.getFont(scale), 0, this.text.length());
 
 		return attrStr;
@@ -65,7 +65,7 @@ public class TextItem extends SlideItem
 	// Geef de bounding box van het item
 	public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer,	float scale, Style myStyle)
 	{
-		List<TextLayout> layouts = getLayouts(graphics, myStyle, scale);
+		List<TextLayout> layouts = this.getLayouts(graphics, myStyle, scale);
 		int xsize = 0, ysize = (int) (myStyle.getLeading() * scale);
 		Iterator<TextLayout> iterator = layouts.iterator();
 		while (iterator.hasNext())
@@ -83,7 +83,7 @@ public class TextItem extends SlideItem
 			ysize += layout.getLeading() + layout.getDescent();
 		}
 
-		return new Rectangle((int) (myStyle.getIndent()*scale), 0, xsize, ysize);
+		return new Rectangle((int) (myStyle.getIndent() * scale), 0, xsize, ysize);
 	}
 
 	// Teken het item
@@ -94,7 +94,7 @@ public class TextItem extends SlideItem
 			return;
 		}
 
-		List<TextLayout> layouts = getLayouts(graphics, myStyle, scale);
+		List<TextLayout> layouts = this.getLayouts(graphics, myStyle, scale);
 		Point pen = new Point(x + (int) (myStyle.getIndent() * scale), y + (int) (myStyle.getLeading() * scale));
 		Graphics2D graphics2D = (Graphics2D) graphics;
 		graphics2D.setColor(myStyle.getColor());
@@ -111,12 +111,12 @@ public class TextItem extends SlideItem
 	private List<TextLayout> getLayouts(Graphics graphics, Style style, float scale)
 	{
 		List<TextLayout> layouts = new ArrayList<TextLayout>();
-		AttributedString attributedString = getAttributedString(style, scale);
+		AttributedString attributedString = this.getAttributedString(style, scale);
     	Graphics2D graphics2D = (Graphics2D) graphics;
     	FontRenderContext fontRenderContext = graphics2D.getFontRenderContext();
     	LineBreakMeasurer measurer = new LineBreakMeasurer(attributedString.getIterator(), fontRenderContext);
     	float wrappingWidth = (Slide.WIDTH - style.getIndent()) * scale;
-    	while (measurer.getPosition() < getText().length())
+    	while (measurer.getPosition() < this.getText().length())
 		{
     		TextLayout layout = measurer.nextLayout(wrappingWidth);
     		layouts.add(layout);
@@ -127,6 +127,6 @@ public class TextItem extends SlideItem
 
 	public String toString()
 	{
-		return "TextItem[" + getLevel() + ", " + getText() + "]";
+		return "TextItem[" + getLevel() + ", " + this.getText() + "]";
 	}
 }
