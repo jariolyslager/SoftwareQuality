@@ -54,34 +54,38 @@ public class MenuController extends MenuBar
 
 	public MenuController(Frame frame, Presentation presentation)
 	{
-		parent = frame;
+		this.parent = frame;
 		this.presentation = presentation;
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
-		fileMenu.add(menuItem = mkMenuItem(OPEN));
-		menuItem.addActionListener(new ActionListener() {
+		fileMenu.add(menuItem = this.mkMenuItem(OPEN));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new OpenCommand(Presentation.getInstance(), parent).execute();
 			}
-		} );
-		fileMenu.add(menuItem = mkMenuItem(NEW));
-		menuItem.addActionListener(new ActionListener() {
+		});
+		fileMenu.add(menuItem = this.mkMenuItem(NEW));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new NewCommand(Presentation.getInstance(), parent).execute();
 			}
 		});
-		fileMenu.add(menuItem = mkMenuItem(SAVE));
-		menuItem.addActionListener(new ActionListener() {
+		fileMenu.add(menuItem = this.mkMenuItem(SAVE));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new SaveCommand(Presentation.getInstance(), parent).execute();
 			}
 		});
 		fileMenu.addSeparator();
-		fileMenu.add(menuItem = mkMenuItem(EXIT));
-		menuItem.addActionListener(new ActionListener() {
+		fileMenu.add(menuItem = this.mkMenuItem(EXIT));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new QuitCommand(Presentation.getInstance()).execute();
@@ -89,22 +93,25 @@ public class MenuController extends MenuBar
 		});
 		add(fileMenu);
 		Menu viewMenu = new Menu(VIEW);
-		viewMenu.add(menuItem = mkMenuItem(NEXT));
-		menuItem.addActionListener(new ActionListener() {
+		viewMenu.add(menuItem = this.mkMenuItem(NEXT));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new NextSlideCommand(Presentation.getInstance()).execute();
 			}
 		});
-		viewMenu.add(menuItem = mkMenuItem(PREV));
-		menuItem.addActionListener(new ActionListener() {
+		viewMenu.add(menuItem = this.mkMenuItem(PREV));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				new PrevSlideCommand(Presentation.getInstance()).execute();
 			}
 		});
-		viewMenu.add(menuItem = mkMenuItem(GOTO));
-		menuItem.addActionListener(new ActionListener() {
+		viewMenu.add(menuItem = this.mkMenuItem(GOTO));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				String pageNumberStr = JOptionPane.showInputDialog((Object)PAGENR);
@@ -114,8 +121,9 @@ public class MenuController extends MenuBar
 		});
 		add(viewMenu);
 		Menu helpMenu = new Menu(HELP);
-		helpMenu.add(menuItem = mkMenuItem(ABOUT));
-		menuItem.addActionListener(new ActionListener() {
+		helpMenu.add(menuItem = this.mkMenuItem(ABOUT));
+		menuItem.addActionListener(new ActionListener()
+		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
 				AboutBox.show(parent);

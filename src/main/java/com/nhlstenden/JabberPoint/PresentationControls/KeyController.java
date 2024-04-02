@@ -24,7 +24,7 @@ public class KeyController extends KeyAdapter
 
 	public void keyPressed(KeyEvent keyEvent)
 	{
-		switch(keyEvent.getKeyCode())
+		switch (keyEvent.getKeyCode())
 		{
 			case KeyEvent.VK_PAGE_DOWN:
 			case KeyEvent.VK_DOWN:
@@ -40,7 +40,7 @@ public class KeyController extends KeyAdapter
 			case 'q':
 			case 'Q':
 				new QuitCommand(this.presentation).execute();
-				break; // wordt nooit bereikt als het goed is
+				break; // Wordt nooit bereikt als het goed is
 			default:
 				break;
 		}
