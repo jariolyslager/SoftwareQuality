@@ -1,8 +1,5 @@
 package com.nhlstenden.JabberPoint.Slides;
 
-import com.nhlstenden.JabberPoint.Accessors.DemoPresentation;
-import com.nhlstenden.JabberPoint.Accessors.XMLAccessor;
-
 public class SlideItemCreator
 {
     public SlideItemCreator()
