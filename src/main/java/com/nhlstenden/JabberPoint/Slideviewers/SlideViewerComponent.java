@@ -75,6 +75,7 @@ public class SlideViewerComponent extends JComponent
 	{
 		graphics.setColor(BGCOLOR);
 		graphics.fillRect(0, 0, getSize().width, getSize().height);
+		
 		if (this.presentation.getSlideNumber() < 0 || this.slide == null)
 		{
 			return;
