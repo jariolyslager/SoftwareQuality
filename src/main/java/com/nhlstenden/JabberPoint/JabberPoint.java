@@ -33,14 +33,15 @@ public class JabberPoint
 	/** Het Main Programma */
 	public static void main(String argv[])
 	{
-		
 		Style.createStyles();
 		Presentation presentation = Presentation.getInstance();
 		new SlideViewerFrame(JABVERSION, presentation);
+
 		try
 		{
 			if (argv.length == 0)
-			{ // een demo presentatie
+			{
+				// Een demo presentatie
 				Accessor.getDemoAccessor().loadFile(presentation, "");
 			}
 			else
@@ -51,9 +52,7 @@ public class JabberPoint
 		}
 		catch (IOException ex)
 		{
-			JOptionPane.showMessageDialog(null,
-					IOERR + ex, JABERR,
-					JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, IOERR + ex, JABERR, JOptionPane.ERROR_MESSAGE);
 		}
 	}
 }
