@@ -9,10 +9,17 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AccessorCreatorTest
 {
+    private static AccessorCreator accessorCreator;
+
+    @BeforeAll
+    static void init()
+    {
+        accessorCreator = new AccessorCreator();
+    }
+
     @Test
     void createAccessor_XML_ExpectXML()
     {
-        AccessorCreator accessorCreator = new AccessorCreator();
         Accessor accessor = accessorCreator.createAccessor(XML);
 
         assertInstanceOf(XMLAccessor.class, accessor);
@@ -21,7 +28,6 @@ class AccessorCreatorTest
     @Test
     void createAccessor_Demo_ExpectDemo()
     {
-        AccessorCreator accessorCreator = new AccessorCreator();
         Accessor accessor = accessorCreator.createAccessor(DEMO);
 
         assertInstanceOf(DemoPresentation.class, accessor);
@@ -30,7 +36,6 @@ class AccessorCreatorTest
     @Test
     void createAccessor_noArgument_ExpectDemo()
     {
-        AccessorCreator accessorCreator = new AccessorCreator();
         Accessor accessor = accessorCreator.createAccessor(DEMO);
 
         assertInstanceOf(DemoPresentation.class, accessor);
