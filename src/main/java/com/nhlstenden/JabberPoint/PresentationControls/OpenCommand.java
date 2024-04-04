@@ -14,12 +14,9 @@ public class OpenCommand extends Command
     protected static final String IOEX = "IO Exception: ";
     protected static final String LOADERR = "Load Error";
 
-    private Component parent;
-
     public OpenCommand(Presentation presentation, Component parent)
     {
-        super(presentation);
-        this.parent = parent;
+        super(presentation, parent);
     }
 
     @Override
@@ -35,9 +32,9 @@ public class OpenCommand extends Command
         }
         catch (IOException exc)
         {
-            JOptionPane.showMessageDialog(this.parent, IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getParent(), IOEX + exc, LOADERR, JOptionPane.ERROR_MESSAGE);
         }
 
-        this.parent.repaint();
+        this.getParent().repaint();
     }
 }

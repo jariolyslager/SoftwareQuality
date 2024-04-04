@@ -15,12 +15,9 @@ public class SaveCommand extends Command
     protected static final String IOEX = "IO Exception: ";
     protected static final String SAVEERR = "Save Error";
 
-    private Component parent;
-
     public SaveCommand(Presentation presentation, Component parent)
     {
-        super(presentation);
-        this.parent = parent;
+        super(presentation, parent);
     }
 
     @Override
@@ -34,7 +31,7 @@ public class SaveCommand extends Command
         }
         catch (IOException exception)
         {
-            JOptionPane.showMessageDialog(this.parent, IOEX + exception, SAVEERR, JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this.getParent(), IOEX + exception, SAVEERR, JOptionPane.ERROR_MESSAGE);
         }
     }
 }
