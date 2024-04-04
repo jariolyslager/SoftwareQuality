@@ -1,9 +1,6 @@
 package com.nhlstenden.JabberPoint.PresentationControls;
 
-import com.nhlstenden.JabberPoint.Accessors.Accessor;
-import com.nhlstenden.JabberPoint.Accessors.AccessorCreator;
-import com.nhlstenden.JabberPoint.Accessors.AccessorEnum;
-import com.nhlstenden.JabberPoint.Accessors.XMLAccessor;
+import com.nhlstenden.JabberPoint.Accessors.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -23,7 +20,7 @@ public class SaveCommand extends Command
     @Override
     public void execute()
     {
-        Accessor xmlAccessor = new AccessorCreator().createAccessor(AccessorEnum.XML);
+        SaveAccessor xmlAccessor = (SaveAccessor) new AccessorCreator().createAccessor(AccessorEnum.XML);
 
         try
         {

@@ -54,9 +54,4 @@ class DemoPresentation extends Accessor
 		slide.append(new BitmapItem(1, "JabberPoint.gif"));
 		presentation.append(slide);
 	}
-
-	public void saveFile(Presentation presentation, String fileName)
-	{
-		throw new IllegalStateException("Save As->Demo! aangeroepen");
-	}
 }
