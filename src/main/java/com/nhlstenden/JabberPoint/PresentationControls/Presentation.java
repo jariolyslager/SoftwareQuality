@@ -67,10 +67,17 @@ public class Presentation
 	// Verander het huidige-slide-nummer en laat het aan het window weten.
 	public void setSlideNumber(int number)
 	{
-		this.currentSlideNumber = number;
-		if (this.slideViewComponent != null)
+		if (number >= 0)
 		{
-			this.slideViewComponent.update(this, this.getCurrentSlide());
+			this.currentSlideNumber = number;
+			if (this.slideViewComponent != null)
+			{
+				this.slideViewComponent.update(this, this.getCurrentSlide());
+			}
+		}
+		else
+		{
+			throw new IllegalArgumentException("Slide number must be greater than 0");
 		}
 	}
 
