@@ -4,17 +4,16 @@ import java.awt.*;
 
 public class NewCommand extends Command
 {
-    private Component parent;
 
     public NewCommand(Presentation presentation, Component parent)
     {
-        super(presentation);
+        super(presentation, parent);
     }
 
     @Override
     public void execute()
     {
         this.getPresentation().clear();
-        this.parent.repaint();
+        this.getParent().repaint();
     }
 }
