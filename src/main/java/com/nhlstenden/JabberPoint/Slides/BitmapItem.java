@@ -51,7 +51,7 @@ public class BitmapItem extends SlideItem
 	// Een leeg bitmap-item
 	public BitmapItem()
 	{
-		this(0, null);
+		this(0, "");
 	}
 
 	// Geef de bestandsnaam van de afbeelding
