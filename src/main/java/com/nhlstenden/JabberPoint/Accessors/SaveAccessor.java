@@ -6,5 +6,5 @@ import java.io.IOException;
 
 public interface SaveAccessor
 {
-    public void saveFile(Presentation presentation, String fileName) throws IOException;
+    void saveFile(Presentation presentation, String fileName) throws IOException;
 }
