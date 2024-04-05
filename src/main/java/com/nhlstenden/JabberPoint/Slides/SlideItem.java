@@ -38,6 +38,11 @@ public abstract class SlideItem
 		return this.level;
 	}
 
+	public void setLevel(int level)
+	{
+		this.level = level;
+	}
+
 	// Geef de bounding box
 	public abstract Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style style);
 

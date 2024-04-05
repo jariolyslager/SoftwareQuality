@@ -31,7 +31,7 @@ public abstract class Command
 
     public Component getParent()
     {
-        return parent;
+        return this.parent;
     }
 
     public void setParent(Component parent)

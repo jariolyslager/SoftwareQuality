@@ -54,10 +54,25 @@ public class BitmapItem extends SlideItem
 		this(0, "");
 	}
 
+	public BufferedImage getBufferedImage()
+	{
+		return this.bufferedImage;
+	}
+
+	public void setBufferedImage(BufferedImage bufferedImage)
+	{
+		this.bufferedImage = bufferedImage;
+	}
+
 	// Geef de bestandsnaam van de afbeelding
 	public String getName()
 	{
 		return this.imageName;
+	}
+
+	public void setImageName(String imageName)
+	{
+		this.imageName = imageName;
 	}
 
 	// Geef de bounding box van de afbeelding

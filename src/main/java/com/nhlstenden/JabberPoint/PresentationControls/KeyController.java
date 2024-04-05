@@ -22,6 +22,16 @@ public class KeyController extends KeyAdapter
 		this.presentation = presentation;
 	}
 
+	public Presentation getPresentation()
+	{
+		return this.presentation;
+	}
+
+	public void setPresentation(Presentation presentation)
+	{
+		this.presentation = presentation;
+	}
+
 	public void keyPressed(KeyEvent keyEvent)
 	{
 		switch (keyEvent.getKeyCode())

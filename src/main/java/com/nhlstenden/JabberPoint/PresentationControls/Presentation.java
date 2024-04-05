@@ -53,6 +53,21 @@ public class Presentation
 		this.showTitle = newTitle;
 	}
 
+	public ArrayList<Slide> getShowList()
+	{
+		return this.showList;
+	}
+
+	public void setShowList(ArrayList<Slide> showList)
+	{
+		this.showList = showList;
+	}
+
+	public SlideViewerComponent getSlideViewComponent()
+	{
+		return this.slideViewComponent;
+	}
+
 	public void setShowView(SlideViewerComponent slideViewerComponent)
 	{
 		this.slideViewComponent = slideViewerComponent;

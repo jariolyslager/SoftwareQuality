@@ -53,6 +53,11 @@ public class TextItem extends SlideItem
 		return this.text == null ? "" : this.text;
 	}
 
+	public void setText(String text)
+	{
+		this.text = text;
+	}
+
 	// Geef de AttributedString voor het item
 	public AttributedString getAttributedString(Style style, float scale)
 	{

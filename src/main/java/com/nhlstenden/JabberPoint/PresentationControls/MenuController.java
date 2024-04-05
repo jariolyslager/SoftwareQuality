@@ -132,6 +132,26 @@ public class MenuController extends MenuBar
 		setHelpMenu(helpMenu); // Nodig for portability (Motif, etc.).
 	}
 
+	public Frame getParent()
+	{
+		return this.parent;
+	}
+
+	public void setParent(Frame parent)
+	{
+		this.parent = parent;
+	}
+
+	public Presentation getPresentation()
+	{
+		return this.presentation;
+	}
+
+	public void setPresentation(Presentation presentation)
+	{
+		this.presentation = presentation;
+	}
+
 	// Een menu-item aanmaken
 	public MenuItem mkMenuItem(String name)
 	{

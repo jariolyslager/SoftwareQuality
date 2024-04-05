@@ -49,6 +49,16 @@ public class Slide
 		this.title = newTitle;
 	}
 
+	public Vector<SlideItem> getItems()
+	{
+		return this.items;
+	}
+
+	public void setItems(Vector<SlideItem> items)
+	{
+		this.items = items;
+	}
+
 	// Maak een TextItem van String, en voeg het TextItem toe
 	public void appendTextItem(int level, String message)
 	{
