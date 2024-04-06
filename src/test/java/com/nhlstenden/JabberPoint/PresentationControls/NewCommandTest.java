@@ -3,7 +3,7 @@ package com.nhlstenden.JabberPoint.PresentationControls;
 import com.nhlstenden.JabberPoint.Slides.Slide;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import static org.junit.jupiter.api.Assertions.*;
 
