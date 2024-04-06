@@ -6,9 +6,7 @@ import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerFrame;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.*;
 import java.awt.event.KeyEvent;
-import java.awt.HeadlessException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
