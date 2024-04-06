@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;
+import java.awt.HeadlessException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,7 +20,15 @@ class KeyControllerTest
     static void init()
     {
         presentation = new Presentation();
-        frame = new JFrame();
+        try
+        {
+            frame = new JFrame();
+        }
+        catch (HeadlessException exception)
+        {
+            System.err.println(exception.toString());
+        }
+
         SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, frame);
         presentation.setShowView(slideViewerComponent);
         Slide slide1 = new Slide();
