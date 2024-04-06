@@ -2,6 +2,7 @@ package com.nhlstenden.JabberPoint.PresentationControls;
 
 import com.nhlstenden.JabberPoint.Slides.Slide;
 import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerComponent;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
@@ -11,11 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class KeyControllerTest
 {
-    @Test
-    void keyPressed_pageDown_expectNextSlide()
+    private static Presentation presentation;
+    private static JFrame frame;
+
+    @BeforeAll
+    static void init()
     {
-        Presentation presentation = new Presentation();
-        JFrame frame = new JFrame();
+        presentation = new Presentation();
+        frame = new JFrame();
         SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, frame);
         presentation.setShowView(slideViewerComponent);
         Slide slide1 = new Slide();
@@ -24,7 +28,11 @@ class KeyControllerTest
         presentation.append(slide1);
         presentation.append(slide2);
         presentation.append(slide3);
+    }
 
+    @Test
+    void keyPressed_pageDown_expectNextSlide()
+    {
         presentation.setSlideNumber(1);
 
         KeyController keyController = new KeyController(presentation);
