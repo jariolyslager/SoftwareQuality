@@ -63,7 +63,7 @@ public class MenuController extends MenuBar
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				new OpenCommand(Presentation.getInstance(), parent).execute();
+				new OpenCommand(Presentation.getInstance(), MenuController.this.parent).execute();
 			}
 		});
 		fileMenu.add(menuItem = this.mkMenuItem(NEW));
@@ -71,7 +71,7 @@ public class MenuController extends MenuBar
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				new NewCommand(Presentation.getInstance(), parent).execute();
+				new NewCommand(Presentation.getInstance(), MenuController.this.parent).execute();
 			}
 		});
 		fileMenu.add(menuItem = this.mkMenuItem(SAVE));
@@ -79,7 +79,7 @@ public class MenuController extends MenuBar
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				new SaveCommand(Presentation.getInstance(), parent).execute();
+				new SaveCommand(Presentation.getInstance(), MenuController.this.parent).execute();
 			}
 		});
 		fileMenu.addSeparator();
@@ -126,7 +126,7 @@ public class MenuController extends MenuBar
 		{
 			public void actionPerformed(ActionEvent actionEvent)
 			{
-				AboutBox.show(parent);
+				AboutBox.show(MenuController.this.parent);
 			}
 		});
 		setHelpMenu(helpMenu); // Nodig for portability (Motif, etc.).
