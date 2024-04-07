@@ -1,0 +1,45 @@
+name: acceptance
+run-name: Acceptance workflow
+on:
+    push:
+        branches: [ "acceptance" ]
+    pull_request:
+        branches: [ "acceptance" ]
+    
+jobs:
+    # Build app with gradle
+    build:
+        name: Build app and setup gradle
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout Code
+            uses: actions/checkout@v4
+          - name: Set up JDK 17
+            uses: actions/setup-java@v4
+            with:
+                java-version: '17'
+                distribution: 'temurin'
+                         
+          - name: Setup Gradle
+            uses: gradle/actions/setup-gradle@ec92e829475ac0c2315ea8f9eced72db85bb337a # v3.0.0
+            with:
+                gradle-version: '8.5'
+          - name: Build with Gradle 8.5
+            run: gradle build
+        
+    # Approve commit manually
+    manual-approval:
+        permissions: write-all
+        runs-on: ubuntu-latest
+        steps:
+          - uses: trstringer/manual-approval@v1
+            with:
+                secret: ${{ github.TOKEN }}
+                approvers: jariolyslager,kay-westerhof
+                minimum-approvals: 1
+                issue-title: "Deploying to prod from staging"
+                issue-body: "Please approve or deny the deployment"
+                exclude-workflow-initiator-as-approver: false
+                additional-approved-words: ''
+                additional-denied-words: ''
+        
