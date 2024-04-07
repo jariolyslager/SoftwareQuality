@@ -50,6 +50,8 @@ In het herontwerp van JabberPoint zijn op meerdere plaatsen de SOLID-principes t
 ### Open/Closed Principle
 - De command pattern zorgt ervoor dat de presentation class niet bewerkt hoeft te worden en ook de abstracte command klasse 
     - De abstracte command klasse is wel open voor extensie 
+
+- De abstracte Accessor-klasse bevat alle basis gedragingen en hoeft niet meer bewerkt te worden. Er kunnen wel altijd nieuwe extensies gemaakt worden van deze klasse, denk aan een JSONAccessor, welke weer extra gedragingen kan bevatten en de basis gedragingen kan overriden. 
 ### Liskov Substitution Principle
 - De commands 
     - Alle subclasses zijn compatible met de functionaliteit van de superclass 
