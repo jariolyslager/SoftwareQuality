@@ -1,0 +1,229 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+          "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+          "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+
+<module name="Checker">
+
+  <property name="severity" value="error"/>
+
+  <property name="fileExtensions" value="java, properties, xml"/>
+
+  <module name="BeforeExecutionExclusionFileFilter">
+    <property name="fileNamePattern" value="module\-info\.java$"/>
+  </module>
+
+  <module name="SuppressionFilter">
+    <property name="file" value="${org.checkstyle.sun.suppressionfilter.config}"
+              default="checkstyle-suppressions.xml" />
+    <property name="optional" value="true"/>
+  </module>
+
+
+  <!-- Other possible Checker checks which can be added if necessary -->
+
+  <!--
+  <module name="NewlineAtEndOfFile"/>
+
+  <module name="Translation"/>
+  
+  <module name="FileLength"/>
+  <module name="LineLength">
+    <property name="fileExtensions" value="java"/>
+	<property name="max" value="120"/>
+  </module>
+
+  <module name="RegexpSingleline">
+    <property name="format" value="\s+$"/>
+    <property name="minimum" value="0"/>
+    <property name="maximum" value="0"/>
+    <property name="message" value="Line has trailing spaces."/>
+  </module>
+  -->
+
+  <module name="TreeWalker">
+
+	<!-- Checks it there's only a single class/interface per file. Can't be customized. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/design/onetoplevelclass.html#OneTopLevelClass -->
+	<module name="OneTopLevelClass"/>
+	
+	<!-- Checks is there's only 1 semicolon per line. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/coding/onestatementperline.html#OneStatementPerLine -->
+	<module name="OneStatementPerLine"/>
+	
+	<!-- Checks if names of local variables follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/localvariablename.html#LocalVariableName -->
+    <module name="LocalVariableName">
+		<property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+	</module>
+	
+	<!-- Checks if names of variables follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/membername.html#MemberName -->
+    <module name="MemberName">
+		<property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+	</module>
+	
+	<!-- Checks if names of methods follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/methodname.html#MethodName -->
+    <module name="MethodName">
+		<property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+	</module>
+	
+	<!-- Checks if names of packages follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/packagename.html#PackageName -->
+    <module name="PackageName">
+		<property name="format" value="^[a-z]+(\.[a-zA-Z_]\w*)*$"/>
+	</module>
+	
+	<!-- Checks if names of the specified tokens follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/typename.html#TypeName -->
+    <module name="TypeName">
+		<property name="format" value="^[A-Z](_?[a-zA-Z0-9]+)*$"/>
+		<property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF"/>
+	</module>
+	
+	<!-- Checks if names of pattern variables follow the specified format. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/naming/patternvariablename.html#PatternVariableName -->
+	<module name="PatternVariableName">
+		<property name="format" value="^[a-z](_?[a-zA-Z0-9]+)*$"/>
+	</module>
+
+	<!-- Checks if variables and methods in same class have prefix this. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/coding/requirethis.html#RequireThis -->
+	<module name="RequireThis">
+		<property name="validateOnlyOverlapping" value="false"/>
+	</module>
+	
+	<!-- Checks if comments are indented to the same level as the first code below. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/misc/commentsindentation.html#CommentsIndentation -->
+	<module name="CommentsIndentation"/>
+	
+	<!-- Checks for the specified tokens that they aren't followed by a whitespace. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/nowhitespaceafter.html#NoWhitespaceAfter -->
+    <module name="NoWhitespaceAfter">
+		<property name="tokens" value="ARRAY_INIT, AT, UNARY_MINUS, BNOT, LNOT, DOT, INDEX_OP, METHOD_REF"/>
+	</module>
+	
+	<!-- Checks for the specified tokens that they aren't prefaced by a whitespace. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/nowhitespacebefore.html#NoWhitespaceBefore -->
+    <module name="NoWhitespaceBefore">
+		<property name="tokens" value="COMMA, SEMI, POST_INC, POST_DEC, DOT, GENERIC_START, GENERIC_END, METHOD_REF"/>
+	</module>
+	
+	<!-- Checks that there is no whitespace before the colon in a switch block. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/nowhitespacebeforecasedefaultcolon.html#NoWhitespaceBeforeCaseDefaultColon -->
+	<module name="NoWhitespaceBeforeCaseDefaultColon"/>
+	
+	<!-- Checks for padding within parentheses, i.e. left parenthesis gets followed by whitespace or right parenthesis gets prefaced by whitespace. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/parenpad.html#ParenPad -->
+    <module name="ParenPad"/>
+	
+	<!-- Checks that there is a whitespace after the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/whitespaceafter.html#WhitespaceAfter -->
+    <module name="WhitespaceAfter">
+		<property name="tokens" value="COMMA, SEMI, TYPECAST, LITERAL_IF, LITERAL_ELSE, LITERAL_WHILE, LITERAL_DO, LITERAL_FOR, LITERAL_FINALLY, LITERAL_RETURN, LITERAL_YIELD, LITERAL_CATCH, DO_WHILE, LITERAL_SWITCH, LITERAL_SYNCHRONIZED, LITERAL_TRY, LITERAL_CASE"/>
+	</module>
+	
+	<!-- Checks that the specified tokens are surrounded by whitespaces. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/whitespacearound.html#WhitespaceAround -->
+    <module name="WhitespaceAround">
+		<property name="tokens" value="ASSIGN, DIV_ASSIGN, PLUS_ASSIGN, MINUS_ASSIGN, STAR_ASSIGN, MOD_ASSIGN, SR_ASSIGN, BSR_ASSIGN, SL_ASSIGN, BXOR_ASSIGN, BOR_ASSIGN, BAND_ASSIGN, BAND, BOR, BXOR, SL, BSR, MOD, STAR, MINUS, PLUS, DIV, GE, GT, LE, LT, LOR, EQUAL, LAND, COLON, QUESTION, TYPE_EXTENSION_AND, NOT_EQUAL, SR"/>
+	</module>
+	
+	<!-- Checks for empty lines before the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/whitespace/emptylineseparator.html#EmptyLineSeparator -->
+	<module name="EmptyLineSeparator">
+		<property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF, COMPACT_CTOR_DEF"/>
+	</module>
+	
+	<!-- Checks for empty code blocks for the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/blocks/emptyblock.html#EmptyBlock -->
+    <module name="EmptyBlock"/>
+	
+	<!-- Checks the placement of left curly braces for the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/blocks/leftcurly.html#LeftCurly -->
+    <module name="LeftCurly">
+		<property name="option" value="nl"/>
+	</module>
+	
+	<!-- Checks for braces around code blocks for the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/blocks/needbraces.html#NeedBraces -->
+    <module name="NeedBraces"/>
+	
+	<!-- Checks the placement of right curly braces for the specified tokens. -->
+	<!-- From: https://checkstyle.sourceforge.io/checks/blocks/rightcurly.html#RightCurly -->
+    <module name="RightCurly">
+		<property name="option" value="alone"/>
+	</module>
+	
+	
+	<!-- Other possible TreeWalker checks which can be added if necessary -->
+	
+	<!--
+	<module name="Indentation"/>
+	
+	<module name="InvalidJavadocPosition"/>
+    <module name="JavadocMethod"/>
+    <module name="JavadocType"/>
+    <module name="JavadocStyle"/>
+    <module name="MissingJavadocMethod"/>
+
+    <module name="ConstantName"/>
+    <module name="LocalFinalVariableName"/>
+	<module name="ParameterName"/>
+    <module name="StaticVariableName"/>
+	
+	<module name="AvoidStarImport"/>
+    <module name="IllegalImport"/>
+    <module name="RedundantImport"/>
+    <module name="UnusedImports">
+      <property name="processJavadoc" value="false"/>
+    </module>
+
+    <module name="MethodLength"/>
+    <module name="ParameterNumber"/>
+
+    <module name="EmptyForIteratorPad"/>
+    <module name="GenericWhitespace"/>
+    <module name="MethodParamPad"/>
+	<module name="OperatorWrap"/>
+	<module name="TypecastParenPad"/>
+	
+	<module name="ModifierOrder"/>
+    <module name="RedundantModifier"/>
+
+    <module name="AvoidNestedBlocks"/>
+	
+    <module name="EmptyStatement"/>
+    <module name="EqualsHashCode"/>
+    <module name="HiddenField"/>
+    <module name="IllegalInstantiation"/>
+    <module name="InnerAssignment"/>
+    <module name="MagicNumber"/>
+    <module name="MissingSwitchDefault"/>
+    <module name="MultipleVariableDeclarations"/>
+    <module name="SimplifyBooleanExpression"/>
+    <module name="SimplifyBooleanReturn"/>
+
+    <module name="DesignForExtension"/>
+    <module name="FinalClass"/>
+    <module name="HideUtilityClassConstructor"/>
+    <module name="InterfaceIsType"/>
+    <module name="VisibilityModifier"/>
+
+    <module name="ArrayTypeStyle"/>
+    <module name="FinalParameters"/>
+    <module name="TodoComment"/>
+    <module name="UpperEll"/>
+	-->
+
+    <module name="SuppressionXpathFilter">
+      <property name="file" value="${org.checkstyle.sun.suppressionxpathfilter.config}"
+                default="checkstyle-xpath-suppressions.xml" />
+      <property name="optional" value="true"/>
+    </module>
+
+  </module>
+
+</module>
