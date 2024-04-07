@@ -66,4 +66,3 @@ In het herontwerp van JabberPoint zijn op meerdere plaatsen de SOLID-principes t
 - Accessors met de SaveAccessor interface 
     - Niet elke accessor kan een file saven, bijv. de DemoAccessor kan dat niet. Het is dan onnodig dat de saveFile method verplicht is.  
     - Elke accessor die een file kan saven moet daarom de SaveAccessor interface hebben. 
-### Dependency Inversion Principle
