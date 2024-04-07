@@ -1,12 +1,15 @@
 package com.nhlstenden.JabberPoint.PresentationControls;
 
+import com.nhlstenden.JabberPoint.Accessors.Accessor;
 import com.nhlstenden.JabberPoint.Slides.Slide;
 import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerComponent;
 import com.nhlstenden.JabberPoint.Slideviewers.SlideViewerFrame;
+import com.nhlstenden.JabberPoint.Styles.Style;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -16,9 +19,10 @@ class KeyControllerTest
     private static SlideViewerFrame slideViewerFrame;
 
     @BeforeAll
-    static void init()
+    static void init() throws IOException
     {
-        presentation = new Presentation();
+        Style.createStyles();
+        presentation = Presentation.getInstance();
 
         slideViewerFrame = new SlideViewerFrame("TestFrame", presentation);
         SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, slideViewerFrame);
@@ -29,6 +33,16 @@ class KeyControllerTest
         presentation.append(slide1);
         presentation.append(slide2);
         presentation.append(slide3);
+
+        try
+        {
+            Accessor.getDemoAccessor().loadFile(presentation, "");
+        }
+        catch (IOException iox)
+        {
+            System.err.println(iox.toString());
+        }
+
     }
 
     @Test
