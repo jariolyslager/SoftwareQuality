@@ -25,14 +25,15 @@ class KeyControllerTest
         presentation = Presentation.getInstance();
 
         slideViewerFrame = new SlideViewerFrame("TestFrame", presentation);
-//        SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, slideViewerFrame);
-//        presentation.setShowView(slideViewerComponent);
-//        Slide slide1 = new Slide();
-//        Slide slide2 = new Slide();
-//        Slide slide3 = new Slide();
-//        presentation.append(slide1);
-//        presentation.append(slide2);
-//        presentation.append(slide3);
+        SlideViewerComponent slideViewerComponent = new SlideViewerComponent(presentation, slideViewerFrame);
+        presentation.setShowView(slideViewerComponent);
+        slideViewerFrame.setupWindow(slideViewerComponent, presentation);
+        Slide slide1 = new Slide();
+        Slide slide2 = new Slide();
+        Slide slide3 = new Slide();
+        presentation.append(slide1);
+        presentation.append(slide2);
+        presentation.append(slide3);
 
         try
         {
