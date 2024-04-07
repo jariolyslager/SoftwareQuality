@@ -37,10 +37,7 @@ jobs:
               with:
                 gradle-version: '8.5'
             - name: Publish package
-              run: |
-                cd ${{ github.workspace }}
-                cd ..
-                gradle publish
+              run: gradle publish
               env:
                   MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
                   MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
