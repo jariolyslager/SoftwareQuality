@@ -23,7 +23,7 @@ public class Presentation
 	private String showTitle; // De titel van de presentatie
 	private ArrayList<Slide> showList = null; // Een ArrayList met de Slides
 	private int currentSlideNumber = 0; // Het slidenummer van de huidige Slide
-	private SlideViewerComponent slideViewComponent = null; // De viewcomponent voor de Slides
+	private SlideViewerComponent slideViewComponent; // De viewcomponent voor de Slides
 	private static volatile Presentation instance;
 
 	public Presentation()
@@ -110,7 +110,7 @@ public class Presentation
 	// Verwijder de presentatie, om klaar te zijn voor de volgende
 	void clear()
 	{
-		this.showList = new ArrayList<Slide>();
+		this.showList = new ArrayList<>();
 		this.setSlideNumber(-1);
 	}
 
@@ -128,7 +128,7 @@ public class Presentation
 			return null;
 	    }
 
-		return (Slide) this.showList.get(number);
+		return this.showList.get(number);
 	}
 
 	// Geef de huidige Slide
@@ -147,11 +147,7 @@ public class Presentation
 		if (instance == null)
 		{
 			instance = new Presentation();
-			return instance;
-		}
-		else
-		{
-			return instance;
-		}
-	}
+        }
+        return instance;
+    }
 }

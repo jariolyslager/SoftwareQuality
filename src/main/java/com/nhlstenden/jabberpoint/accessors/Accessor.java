@@ -27,9 +27,5 @@ public abstract class Accessor
 		return new DemoPresentation();
 	}
 
-	public Accessor()
-	{
-	}
-
 	abstract public void loadFile(Presentation presentation, String fileName) throws IOException;
 }

@@ -17,10 +17,6 @@ public class SlideItemLoader
     protected static final String UNKNOWNTYPE = "Unknown Element type";
     protected static final String NFE = "Number Format Exception";
 
-    public SlideItemLoader()
-    {
-    }
-
     public void loadSlideItem(Slide slide, Element item)
     {
         int level = 1; // default

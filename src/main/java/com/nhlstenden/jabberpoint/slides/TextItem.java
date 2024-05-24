@@ -2,20 +2,16 @@ package com.nhlstenden.jabberpoint.slides;
 
 import com.nhlstenden.jabberpoint.styles.Style;
 
-import java.awt.Rectangle;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Point;
-import java.awt.font.TextLayout;
-import java.awt.font.TextAttribute;
-import java.awt.font.LineBreakMeasurer;
+import java.awt.*;
 import java.awt.font.FontRenderContext;
+import java.awt.font.LineBreakMeasurer;
+import java.awt.font.TextAttribute;
+import java.awt.font.TextLayout;
 import java.awt.geom.Rectangle2D;
 import java.awt.image.ImageObserver;
 import java.text.AttributedString;
-import java.util.List;
-import java.util.Iterator;
 import java.util.ArrayList;
+import java.util.List;
 
 /** <p>Een tekst item.</p>
  * <p>Een TextItem heeft tekenfunctionaliteit.</p>
@@ -68,33 +64,33 @@ public class TextItem extends SlideItem
 	}
 
 	// Geef de bounding box van het item
+	@Override
 	public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer,	float scale, Style myStyle)
 	{
 		List<TextLayout> layouts = this.getLayouts(graphics, myStyle, scale);
 		int xsize = 0, ysize = (int) (myStyle.getLeading() * scale);
-		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext())
+        for (TextLayout layout : layouts)
 		{
-			TextLayout layout = iterator.next();
-			Rectangle2D bounds = layout.getBounds();
-			if (bounds.getWidth() > xsize)
+            Rectangle2D bounds = layout.getBounds();
+            if (bounds.getWidth() > xsize)
 			{
-				xsize = (int) bounds.getWidth();
-			}
-			if (bounds.getHeight() > 0)
+                xsize = (int) bounds.getWidth();
+            }
+            if (bounds.getHeight() > 0)
 			{
-				ysize += bounds.getHeight();
-			}
-			ysize += layout.getLeading() + layout.getDescent();
-		}
+                ysize += (int) bounds.getHeight();
+            }
+            ysize += (int) (layout.getLeading() + layout.getDescent());
+        }
 
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0, xsize, ysize);
 	}
 
 	// Teken het item
+	@Override
 	public void draw(int x, int y, float scale, Graphics graphics, Style myStyle, ImageObserver observer)
 	{
-		if (this.text == null || this.text.length() == 0)
+		if (this.text == null || this.text.isEmpty())
 		{
 			return;
 		}
@@ -103,19 +99,17 @@ public class TextItem extends SlideItem
 		Point pen = new Point(x + (int) (myStyle.getIndent() * scale), y + (int) (myStyle.getLeading() * scale));
 		Graphics2D graphics2D = (Graphics2D) graphics;
 		graphics2D.setColor(myStyle.getColor());
-		Iterator<TextLayout> iterator = layouts.iterator();
-		while (iterator.hasNext())
+        for (TextLayout layout : layouts)
 		{
-			TextLayout layout = iterator.next();
-			pen.y += layout.getAscent();
-			layout.draw(graphics2D, pen.x, pen.y);
-			pen.y += layout.getDescent();
-		}
+            pen.y += (int) layout.getAscent();
+            layout.draw(graphics2D, pen.x, pen.y);
+            pen.y += (int) layout.getDescent();
+        }
 	  }
 
 	private List<TextLayout> getLayouts(Graphics graphics, Style style, float scale)
 	{
-		List<TextLayout> layouts = new ArrayList<TextLayout>();
+		List<TextLayout> layouts = new ArrayList<>();
 		AttributedString attributedString = this.getAttributedString(style, scale);
     	Graphics2D graphics2D = (Graphics2D) graphics;
     	FontRenderContext fontRenderContext = graphics2D.getFontRenderContext();

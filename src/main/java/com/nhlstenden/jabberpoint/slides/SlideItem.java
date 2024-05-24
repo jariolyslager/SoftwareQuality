@@ -20,16 +20,11 @@ import java.awt.image.ImageObserver;
 public abstract class SlideItem
 {
 	// Het level van het SlideItem
-	private int level = 0;
+	private int level;
 
 	public SlideItem(int level)
 	{
 		this.level = level;
-	}
-
-	public SlideItem()
-	{
-		this(0);
 	}
 
 	// Geef het level
