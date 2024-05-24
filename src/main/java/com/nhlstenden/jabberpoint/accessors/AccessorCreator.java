@@ -4,10 +4,14 @@ public class AccessorCreator
 {
     public Accessor createAccessor(AccessorEnum type)
     {
-        return switch (type)
+        switch (type)
         {
-            case XML -> new XMLAccessor();
-            default -> new DemoPresentation();
-        };
+            case XML:
+                return new XMLAccessor();
+            case DEMO:
+                return new DemoPresentation();
+            default:
+                return null;
+        }
     }
 }

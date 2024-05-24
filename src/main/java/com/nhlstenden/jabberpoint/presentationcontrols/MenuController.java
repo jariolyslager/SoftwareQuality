@@ -66,7 +66,8 @@ public class MenuController extends MenuBar
 		viewMenu.add(menuItem = this.mkMenuItem(PREV));
 		menuItem.addActionListener(actionEvent -> new PrevSlideCommand(Presentation.getInstance()).execute());
 		viewMenu.add(menuItem = this.mkMenuItem(GOTO));
-		menuItem.addActionListener(actionEvent -> {
+		menuItem.addActionListener(actionEvent ->
+		{
             String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
             int pageNumber = Integer.parseInt(pageNumberStr);
             MenuController.this.presentation.setSlideNumber(pageNumber - 1);
