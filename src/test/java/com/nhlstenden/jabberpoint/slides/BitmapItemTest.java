@@ -31,4 +31,23 @@ class BitmapItemTest
         assertEquals(0, item.getLevel());
     }
 
+    @Test
+    void ToString_emptyBitmapItem_ExpectStringNoNameLevel0()
+    {
+        BitmapItem item = new BitmapItem();
+
+        String string = item.toString();
+
+        assertEquals("BitmapItem[" + "0" + "," + "" + "]", string);
+    }
+
+    @Test
+    void ToString_BitmapItem_ExpectCorrectString()
+    {
+        BitmapItem item = new BitmapItem(1, "JabberPoint.gif");
+
+        String string = item.toString();
+
+        assertEquals("BitmapItem[" + "1" + "," + "JabberPoint.gif" + "]", string);
+    }
 }
