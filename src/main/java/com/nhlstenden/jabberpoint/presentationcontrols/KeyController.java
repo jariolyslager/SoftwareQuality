@@ -50,7 +50,6 @@ public class KeyController extends KeyAdapter
 			case 'q':
 			case 'Q':
 				new QuitCommand(this.presentation).execute();
-				break; // Wordt nooit bereikt als het goed is
 			default:
 				break;
 		}

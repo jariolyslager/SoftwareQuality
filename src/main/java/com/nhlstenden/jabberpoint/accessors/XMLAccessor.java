@@ -51,9 +51,13 @@ public class XMLAccessor extends Accessor implements SaveAccessor
     	return titles.item(0).getTextContent();
     }
 
+	@Override
 	public void loadFile(Presentation presentation, String fileName) throws IOException
 	{
-		int slideNumber, itemNumber, max = 0, maxItems = 0;
+		int slideNumber;
+		int itemNumber;
+		int max;
+		int maxItems;
 		try
 		{
 			InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
@@ -90,13 +94,9 @@ public class XMLAccessor extends Accessor implements SaveAccessor
 				}
 			}
 		} 
-		catch (IOException iox)
+		catch (IOException | SAXException iox)
 		{
-			System.err.println(iox.toString());
-		}
-		catch (SAXException sax)
-		{
-			System.err.println(sax.getMessage());
+			System.err.println(iox.getMessage());
 		}
 		catch (ParserConfigurationException pcx)
 		{
@@ -104,6 +104,7 @@ public class XMLAccessor extends Accessor implements SaveAccessor
 		}	
 	}
 
+	@Override
 	public void saveFile(Presentation presentation, String fileName) throws IOException
 	{
 		PrintWriter out = new PrintWriter(new FileWriter(fileName));
@@ -123,7 +124,7 @@ public class XMLAccessor extends Accessor implements SaveAccessor
 
 			for (int itemNumber = 0; itemNumber < slideItems.size(); itemNumber++)
 			{
-				SlideItem slideItem = (SlideItem) slideItems.elementAt(itemNumber);
+				SlideItem slideItem = slideItems.elementAt(itemNumber);
 				out.print("<item kind=");
 
 				if (slideItem instanceof TextItem)

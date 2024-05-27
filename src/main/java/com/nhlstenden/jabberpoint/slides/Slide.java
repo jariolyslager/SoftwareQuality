@@ -28,7 +28,7 @@ public class Slide
 
 	public Slide()
 	{
-		this.items = new Vector<SlideItem>();
+		this.items = new Vector<>();
 	}
 
 	// Voeg een SlideItem toe
@@ -68,7 +68,7 @@ public class Slide
 	// Geef het betreffende SlideItem
 	public SlideItem getSlideItem(int number)
 	{
-		return (SlideItem) this.items.elementAt(number);
+		return this.items.elementAt(number);
 	}
 
 	// Geef alle SlideItems in een Vector
@@ -95,7 +95,7 @@ public class Slide
 		y += slideItem.getBoundingBox(graphics, view, scale, style).height;
 		for (int number = 0; number < this.getSize(); number++)
 		{
-	    	slideItem = (SlideItem) this.getSlideItems().elementAt(number);
+	    	slideItem = this.getSlideItems().elementAt(number);
 			style = Style.getStyle(slideItem.getLevel());
 			slideItem.draw(area.x, y, scale, graphics, style, view);
 			y += slideItem.getBoundingBox(graphics, view, scale, style).height;

@@ -75,12 +75,14 @@ public class BitmapItem extends SlideItem
 	}
 
 	// Geef de bounding box van de afbeelding
+	@Override
 	public Rectangle getBoundingBox(Graphics graphics, ImageObserver observer, float scale, Style myStyle)
 	{
 		return new Rectangle((int) (myStyle.getIndent() * scale), 0, (int) (this.bufferedImage.getWidth(observer) * scale), ((int) (myStyle.getLeading() * scale)) + (int) (this.bufferedImage.getHeight(observer) * scale));
 	}
 
 	// Teken de afbeelding
+	@Override
 	public void draw(int x, int y, float scale, Graphics graphics, Style myStyle, ImageObserver observer)
 	{
 		int width = x + (int) (myStyle.getIndent() * scale);

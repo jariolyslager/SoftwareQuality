@@ -2,15 +2,9 @@ package com.nhlstenden.jabberpoint.presentationcontrols;
 
 import com.nhlstenden.jabberpoint.aboutbox.AboutBox;
 
-import java.awt.MenuBar;
-import java.awt.Frame;
-import java.awt.Menu;
-import java.awt.MenuItem;
-import java.awt.MenuShortcut;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-
-import javax.swing.JOptionPane;
+import javax.swing.*;
+import java.awt.*;
+import java.io.Serial;
 
 /** <p>De controller voor het menu</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -27,6 +21,7 @@ public class MenuController extends MenuBar
 	private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
 	private Presentation presentation; // Er worden commando's gegeven aan de presentatie
 	
+	@Serial
 	private static final long serialVersionUID = 227L;
 	
 	protected static final String ABOUT = "About";
@@ -56,76 +51,31 @@ public class MenuController extends MenuBar
 		MenuItem menuItem;
 		Menu fileMenu = new Menu(FILE);
 		fileMenu.add(menuItem = this.mkMenuItem(OPEN));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new OpenCommand(Presentation.getInstance(), MenuController.this.parent).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new OpenCommand(Presentation.getInstance(), MenuController.this.parent).execute());
 		fileMenu.add(menuItem = this.mkMenuItem(NEW));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new NewCommand(Presentation.getInstance(), MenuController.this.parent).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new NewCommand(Presentation.getInstance(), MenuController.this.parent).execute());
 		fileMenu.add(menuItem = this.mkMenuItem(SAVE));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new SaveCommand(Presentation.getInstance(), MenuController.this.parent).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new SaveCommand(Presentation.getInstance(), MenuController.this.parent).execute());
 		fileMenu.addSeparator();
 		fileMenu.add(menuItem = this.mkMenuItem(EXIT));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new QuitCommand(Presentation.getInstance()).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new QuitCommand(Presentation.getInstance()).execute());
 		add(fileMenu);
 		Menu viewMenu = new Menu(VIEW);
 		viewMenu.add(menuItem = this.mkMenuItem(NEXT));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new NextSlideCommand(Presentation.getInstance()).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new NextSlideCommand(Presentation.getInstance()).execute());
 		viewMenu.add(menuItem = this.mkMenuItem(PREV));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				new PrevSlideCommand(Presentation.getInstance()).execute();
-			}
-		});
+		menuItem.addActionListener(actionEvent -> new PrevSlideCommand(Presentation.getInstance()).execute());
 		viewMenu.add(menuItem = this.mkMenuItem(GOTO));
-		menuItem.addActionListener(new ActionListener()
+		menuItem.addActionListener(actionEvent ->
 		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				String pageNumberStr = JOptionPane.showInputDialog((Object) PAGENR);
-				int pageNumber = Integer.parseInt(pageNumberStr);
-				MenuController.this.presentation.setSlideNumber(pageNumber - 1);
-			}
-		});
+            String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
+            int pageNumber = Integer.parseInt(pageNumberStr);
+            MenuController.this.presentation.setSlideNumber(pageNumber - 1);
+        });
 		add(viewMenu);
 		Menu helpMenu = new Menu(HELP);
 		helpMenu.add(menuItem = this.mkMenuItem(ABOUT));
-		menuItem.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent actionEvent)
-			{
-				AboutBox.show(MenuController.this.parent);
-			}
-		});
+		menuItem.addActionListener(actionEvent -> AboutBox.show(MenuController.this.parent));
 		setHelpMenu(helpMenu); // Nodig for portability (Motif, etc.).
 	}
 

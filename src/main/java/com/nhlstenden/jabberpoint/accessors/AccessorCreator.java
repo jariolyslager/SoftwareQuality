@@ -2,10 +2,6 @@ package com.nhlstenden.jabberpoint.accessors;
 
 public class AccessorCreator
 {
-    public AccessorCreator()
-    {
-    }
-
     public Accessor createAccessor(AccessorEnum type)
     {
         switch (type)
@@ -15,7 +11,7 @@ public class AccessorCreator
             case DEMO:
                 return new DemoPresentation();
             default:
-                return new DemoPresentation();
+                return null;
         }
     }
 }

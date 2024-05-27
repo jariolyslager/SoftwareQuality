@@ -16,6 +16,7 @@ import com.nhlstenden.jabberpoint.slides.Slide;
 
 class DemoPresentation extends Accessor
 {
+	@Override
 	public void loadFile(Presentation presentation, String fileName)
 	{
 		presentation.setTitle("Demo Presentation");
