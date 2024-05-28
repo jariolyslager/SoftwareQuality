@@ -32,12 +32,4 @@ class AccessorCreatorTest
 
         assertInstanceOf(DemoPresentation.class, accessor);
     }
-
-    @Test
-    void createAccessor_noArgument_ExpectDemo()
-    {
-        Accessor accessor = accessorCreator.createAccessor(DEMO);
-
-        assertInstanceOf(DemoPresentation.class, accessor);
-    }
 }
