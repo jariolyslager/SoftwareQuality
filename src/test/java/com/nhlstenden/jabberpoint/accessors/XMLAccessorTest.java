@@ -46,12 +46,33 @@ class XMLAccessorTest
     @Test
     void loadFile_nonExistingFile_expectException() throws IOException
     {
-
         XMLAccessor xmlAccessor = new XMLAccessor();
         Presentation presentation = new Presentation();
         xmlAccessor.loadFile(presentation, "file.xml");
 
 
         assertTrue(errContent.toString().contains("File not found in resources"));
+    }
+
+    @Test
+    void saveFile_valid_expectSuccess() throws Exception
+    {
+        XMLAccessor xmlAccessor = new XMLAccessor();
+        Presentation presentation = new Presentation();
+
+        xmlAccessor.saveFile(presentation, "newFile.xml");
+        assertEquals(null, presentation.getTitle());
+        assertEquals(0, presentation.getSize());
+    }
+
+    @Test
+    void saveFile_invalidFileName_expectException() throws IOException
+    {
+        XMLAccessor xmlAccessor = new XMLAccessor();
+        Presentation presentation = new Presentation();
+
+        assertThrows(IOException.class, () -> {
+            xmlAccessor.saveFile(presentation, "file___?//l");
+        });
     }
 }

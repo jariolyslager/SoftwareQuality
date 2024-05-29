@@ -3,6 +3,8 @@ package com.nhlstenden.jabberpoint.presentationcontrols;
 import com.nhlstenden.jabberpoint.slides.Slide;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PresentationTest
@@ -122,5 +124,53 @@ class PresentationTest
         Presentation presentation2 = Presentation.getInstance();
 
         assertEquals(presentation1, presentation2);
+    }
+
+    @Test
+    void getSlide_negativeSlideNumber_expectNull()
+    {
+        Presentation presentation = new Presentation();
+        Slide slide1 = new Slide();
+        Slide slide2 = new Slide();
+        Slide slide3 = new Slide();
+        ArrayList<Slide> slides = new ArrayList<>();
+        slides.add(slide1);
+        slides.add(slide2);
+        slides.add(slide3);
+        presentation.setShowList(slides);
+
+        assertEquals(null, presentation.getSlide(-1));
+    }
+
+    @Test
+    void getSlide_zeroSlideNumber_expectSlide()
+    {
+        Presentation presentation = new Presentation();
+        Slide slide1 = new Slide();
+        Slide slide2 = new Slide();
+        Slide slide3 = new Slide();
+        ArrayList<Slide> slides = new ArrayList<>();
+        slides.add(slide1);
+        slides.add(slide2);
+        slides.add(slide3);
+        presentation.setShowList(slides);
+
+        assertEquals(slide1, presentation.getSlide(0));
+    }
+
+    @Test
+    void getSlide_tooLargeSlideNumber_expectNull()
+    {
+        Presentation presentation = new Presentation();
+        Slide slide1 = new Slide();
+        Slide slide2 = new Slide();
+        Slide slide3 = new Slide();
+        ArrayList<Slide> slides = new ArrayList<>();
+        slides.add(slide1);
+        slides.add(slide2);
+        slides.add(slide3);
+        presentation.setShowList(slides);
+
+        assertEquals(null, presentation.getSlide(4));
     }
 }

@@ -11,7 +11,7 @@ public class AccessorCreator
             case DEMO:
                 return new DemoPresentation();
             default:
-                return null;
+                throw new IllegalArgumentException("Invalid type");
         }
     }
 }
