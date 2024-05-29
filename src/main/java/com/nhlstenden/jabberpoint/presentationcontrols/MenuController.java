@@ -70,7 +70,14 @@ public class MenuController extends MenuBar
 		{
             String pageNumberStr = JOptionPane.showInputDialog(PAGENR);
             int pageNumber = Integer.parseInt(pageNumberStr);
-            MenuController.this.presentation.setSlideNumber(pageNumber - 1);
+			if (pageNumber <= presentation.getSize())
+			{
+				MenuController.this.presentation.setSlideNumber(pageNumber - 1);
+			}
+			else
+			{
+				throw new IllegalArgumentException("Deze slide bestaat niet");
+			}
         });
 		add(viewMenu);
 		Menu helpMenu = new Menu(HELP);
