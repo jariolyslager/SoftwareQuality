@@ -21,10 +21,10 @@ class SlideViewerComponentTest
     @BeforeEach
     void setUp()
     {
-        presentation = new Presentation();
-        slide = new Slide();
-        frame = new JFrame();
-        slideViewerComponent = new SlideViewerComponent(presentation, frame);
+        this.presentation = new Presentation();
+        this.slide = new Slide();
+        this.frame = new JFrame();
+        this.slideViewerComponent = new SlideViewerComponent(presentation, frame);
     }
 
     @Test

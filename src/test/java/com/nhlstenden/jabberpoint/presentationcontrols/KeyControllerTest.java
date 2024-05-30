@@ -17,61 +17,68 @@ class KeyControllerTest
     private JPanel testComponent;
 
     @BeforeEach
-    void setUp() {
-        presentation = new Presentation();
+    void setUp()
+    {
+        this.presentation = new Presentation();
         // Adding slides to the presentation
-        presentation.append(new Slide());
-        presentation.append(new Slide());
-        presentation.append(new Slide());
-        keyController = new KeyController(presentation);
-        testComponent = new JPanel();
+        this.presentation.append(new Slide());
+        this.presentation.append(new Slide());
+        this.presentation.append(new Slide());
+        this.keyController = new KeyController(presentation);
+        this.testComponent = new JPanel();
     }
 
     @Test
-    void testKeyPressed_PageDown_expectNextSlide() {
-        presentation.setSlideNumber(0);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_DOWN, KeyEvent.CHAR_UNDEFINED);
-        keyController.keyPressed(keyEvent);
-        assertEquals(1, presentation.getSlideNumber());
+    void testKeyPressed_PageDown_expectNextSlide()
+    {
+        this.presentation.setSlideNumber(0);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_DOWN, KeyEvent.CHAR_UNDEFINED);
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(1, this.presentation.getSlideNumber());
     }
 
     @Test
-    void testKeyPressed_Down_ExpectNextSlide() {
-        presentation.setSlideNumber(0);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_DOWN, KeyEvent.CHAR_UNDEFINED);
-        keyController.keyPressed(keyEvent);
-        assertEquals(1, presentation.getSlideNumber());
+    void testKeyPressed_Down_ExpectNextSlide()
+    {
+        this.presentation.setSlideNumber(0);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_DOWN, KeyEvent.CHAR_UNDEFINED);
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(1, this.presentation.getSlideNumber());
     }
 
     @Test
-    void testKeyPressed_Enter_ExpectNextSlide() {
-        presentation.setSlideNumber(0);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
-        keyController.keyPressed(keyEvent);
-        assertEquals(1, presentation.getSlideNumber());
+    void testKeyPressed_Enter_ExpectNextSlide()
+    {
+        this.presentation.setSlideNumber(0);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_ENTER, KeyEvent.CHAR_UNDEFINED);
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(1, this.presentation.getSlideNumber());
     }
 
     @Test
-    void testKeyPressed_PageUp_ExpectPreviousSlide() {
-        presentation.setSlideNumber(1);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_UP, KeyEvent.CHAR_UNDEFINED);
-        keyController.keyPressed(keyEvent);
-        assertEquals(0, presentation.getSlideNumber());
+    void testKeyPressed_PageUp_ExpectPreviousSlide()
+    {
+        this.presentation.setSlideNumber(1);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_PAGE_UP, KeyEvent.CHAR_UNDEFINED);
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(0, this.presentation.getSlideNumber());
     }
 
     @Test
-    void testKeyPressed_Up_ExpectPreviousSlide() {
-        presentation.setSlideNumber(1);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_UP, KeyEvent.CHAR_UNDEFINED);
-        keyController.keyPressed(keyEvent);
-        assertEquals(0, presentation.getSlideNumber());
+    void testKeyPressed_Up_ExpectPreviousSlide()
+    {
+        this.presentation.setSlideNumber(1);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_UP, KeyEvent.CHAR_UNDEFINED);
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(0, this.presentation.getSlideNumber());
     }
 
     @Test
-    void testKeyPressed_Minus_ExpectPreviousSlide() {
-        presentation.setSlideNumber(1);
-        KeyEvent keyEvent = new KeyEvent(testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_MINUS, '-');
-        keyController.keyPressed(keyEvent);
-        assertEquals(0, presentation.getSlideNumber());
+    void testKeyPressed_Minus_ExpectPreviousSlide()
+    {
+        this.presentation.setSlideNumber(1);
+        KeyEvent keyEvent = new KeyEvent(this.testComponent, KeyEvent.KEY_PRESSED, System.currentTimeMillis(), 0, KeyEvent.VK_MINUS, '-');
+        this.keyController.keyPressed(keyEvent);
+        assertEquals(0, this.presentation.getSlideNumber());
     }
 }
