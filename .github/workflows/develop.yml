@@ -25,12 +25,13 @@ jobs:
             with:
                 gradle-version: '8.5'
                 
-          - name: Setup xvfb for screen 0, build with Gradle 8.5 and run tests
+          - name: Build with Gradle 8.5
+            run: gradle build
+                
+          - name: Setup xvfb for screen 0 and run tests
             run: Xvfb :1 -screen 0 1600x1200x24 &
-          - run: |
-                gradle build
-                gradle test
-          - env:
+          - run: gradle test
+            env:
                 DISPLAY: :1
           - name: Tear down xvfb
             run: killall Xvfb
