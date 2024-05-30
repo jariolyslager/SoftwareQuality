@@ -24,7 +24,7 @@ class KeyControllerTest
         this.presentation.append(new Slide());
         this.presentation.append(new Slide());
         this.presentation.append(new Slide());
-        this.keyController = new KeyController(presentation);
+        this.keyController = new KeyController(this.presentation);
         this.testComponent = new JPanel();
     }
 

@@ -11,7 +11,8 @@ class BitmapItemTest
     @Test
     void createBitmapItem_invalidFile_ExpectError()
     {
-        assertThrows(IllegalArgumentException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () ->
+        {
             new BitmapItem(0, "niks");
         });
     }
@@ -32,7 +33,7 @@ class BitmapItemTest
     }
 
     @Test
-    void ToString_emptyBitmapItem_ExpectStringNoNameLevel0()
+    void toString_emptyBitmapItem_ExpectStringNoNameLevel0()
     {
         BitmapItem item = new BitmapItem();
 
@@ -42,7 +43,7 @@ class BitmapItemTest
     }
 
     @Test
-    void ToString_BitmapItem_ExpectCorrectString()
+    void toString_BitmapItem_ExpectCorrectString()
     {
         BitmapItem item = new BitmapItem(1, "JabberPoint.gif");
 

@@ -71,7 +71,8 @@ class XMLAccessorTest
         XMLAccessor xmlAccessor = new XMLAccessor();
         Presentation presentation = new Presentation();
 
-        assertThrows(IOException.class, () -> {
+        assertThrows(IOException.class, () ->
+        {
             xmlAccessor.saveFile(presentation, "file___?//l");
         });
     }

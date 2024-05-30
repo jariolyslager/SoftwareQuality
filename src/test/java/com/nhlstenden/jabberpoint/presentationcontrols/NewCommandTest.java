@@ -9,7 +9,8 @@ import java.awt.image.ImageObserver;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NewCommandTest {
+class NewCommandTest
+{
 
     @Test
     void execute_clearPresentation_expectNoSlides()

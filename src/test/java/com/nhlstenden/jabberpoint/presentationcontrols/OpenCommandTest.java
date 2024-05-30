@@ -9,7 +9,8 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class OpenCommandTest {
+class OpenCommandTest
+{
 
     @Test
     void execute_openTestFile_expectSuccess() throws Exception
@@ -20,7 +21,8 @@ class OpenCommandTest {
         presentation.setSlideNumber(1);
 
 
-        assertDoesNotThrow(() -> {
+        assertDoesNotThrow(() ->
+        {
             new OpenCommand(presentation, new JPanel()).execute();
         });
     }
