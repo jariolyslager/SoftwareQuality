@@ -8,7 +8,6 @@ import java.awt.Font;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Rectangle;
-import java.io.Serial;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 
@@ -32,8 +31,7 @@ public class SlideViewerComponent extends JComponent
 	// De presentatie
 	private Presentation presentation;
 	private JFrame frame;
-	
-	@Serial
+
 	private static final long serialVersionUID = 227L;
 	
 	private static final Color BGCOLOR = Color.white;

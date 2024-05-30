@@ -4,7 +4,6 @@ import com.nhlstenden.jabberpoint.aboutbox.AboutBox;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.Serial;
 
 /** <p>De controller voor het menu</p>
  * @author Ian F. Darwin, ian@darwinsys.com, Gert Florijn, Sylvia Stuurman
@@ -20,8 +19,7 @@ public class MenuController extends MenuBar
 	
 	private Frame parent; // het frame, alleen gebruikt als ouder voor de Dialogs
 	private Presentation presentation; // Er worden commando's gegeven aan de presentatie
-	
-	@Serial
+
 	private static final long serialVersionUID = 227L;
 	
 	protected static final String ABOUT = "About";
