@@ -25,16 +25,16 @@ jobs:
             with:
                 gradle-version: '8.5'
                 
-          - name: Build with Gradle 8.5
-            run: gradle build
-                
           - name: Setup xvfb for screen 0 and run tests
             run: Xvfb :1 -screen 0 1600x1200x24 &
-          - run: gradle test
+          - run: gradle build
             env:
                 DISPLAY: :1
           - name: Tear down xvfb
             run: killall Xvfb
+            
+          - name: Run tests
+            run: gradle test
   
     # Check code style with super-linter
     run-lint:
