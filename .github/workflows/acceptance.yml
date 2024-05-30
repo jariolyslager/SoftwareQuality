@@ -24,8 +24,14 @@ jobs:
             uses: gradle/actions/setup-gradle@ec92e829475ac0c2315ea8f9eced72db85bb337a # v3.0.0
             with:
                 gradle-version: '8.5'
-          - name: Build with Gradle 8.5
-            run: gradle build
+                
+          - name: Setup xvfb for screen 0 and run tests
+            run: Xvfb :1 -screen 0 1600x1200x24 &
+          - run: gradle build
+            env:
+                DISPLAY: :1
+          - name: Tear down xvfb
+            run: killall Xvfb
         
     # Approve commit manually
     manual-approval:
