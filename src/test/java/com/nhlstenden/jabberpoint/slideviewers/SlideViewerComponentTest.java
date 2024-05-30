@@ -24,14 +24,14 @@ class SlideViewerComponentTest
         this.presentation = new Presentation();
         this.slide = new Slide();
         this.frame = new JFrame();
-        this.slideViewerComponent = new SlideViewerComponent(presentation, frame);
+        this.slideViewerComponent = new SlideViewerComponent(this.presentation, this.frame);
     }
 
     @Test
     void testGetAndSetSlide_expectSameSlide()
     {
-        this.slideViewerComponent.setSlide(slide);
-        assertEquals(slide, slideViewerComponent.getSlide());
+        this.slideViewerComponent.setSlide(this.slide);
+        assertEquals(this.slide, this.slideViewerComponent.getSlide());
     }
 
     @Test
@@ -45,8 +45,8 @@ class SlideViewerComponentTest
     @Test
     void testGetAndSetPresentation_expectSamePresentation()
     {
-        this.slideViewerComponent.setPresentation(presentation);
-        assertEquals(presentation, this.slideViewerComponent.getPresentation());
+        this.slideViewerComponent.setPresentation(this.presentation);
+        assertEquals(this.presentation, this.slideViewerComponent.getPresentation());
     }
 
     @Test
@@ -61,8 +61,8 @@ class SlideViewerComponentTest
     void testUpdateWithSlide_expectUpdatedSlideAndTitle()
     {
         this.presentation.setTitle("Test Presentation");
-        this.presentation.append(slide);
-        this.slideViewerComponent.update(this.presentation, slide);
+        this.presentation.append(this.slide);
+        this.slideViewerComponent.update(this.presentation, this.slide);
         assertEquals(this.presentation, this.slideViewerComponent.getPresentation());
         assertEquals(this.slide, this.slideViewerComponent.getSlide());
         assertEquals("Test Presentation", this.frame.getTitle());
